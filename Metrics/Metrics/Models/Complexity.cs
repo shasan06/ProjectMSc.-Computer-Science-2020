@@ -14,5 +14,8 @@ namespace Metrics.Models
         public int Compare { get; set; }
         public int Add { get; set; }
         public int Subtract { get; set; }
+
+        //This will hold the name of the image
+        public string Image { get; set; }
     }
 }

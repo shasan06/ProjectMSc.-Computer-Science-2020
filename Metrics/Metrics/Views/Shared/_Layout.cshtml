@@ -1,14 +1,34 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
+<head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Metrics</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
+    <!--bootstrap css-->
+    <link href="C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\bootstrap\css\bootstrap.min.css" rel="stylesheet" />
+    <!--datatables css-->
+    <link href="C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\datatables\css\jquery.dataTables.min.css" rel="stylesheet" />
+    <!--fontawesome css-->
+    <link href="C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\fontawesome\css\all.css" rel="stylesheet" />
+    <!--our custom css-->
+    <link href="C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\css\customstylesheet.css" rel="stylesheet" />
+
+    <!--jquery-->
+    <script src="C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\bootstrap\js\jquery-3.5.1.slim.min.js"></script>
+    <!--popper js-->
+    <script src="C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\bootstrap\js\popper.min.js"></script>
+    <!--bootstrap js-->
+    <script src="C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\bootstrap\js\bootstrap.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <header>
+        
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Metrics</a>

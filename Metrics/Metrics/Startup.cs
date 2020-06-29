@@ -12,6 +12,8 @@ using Metrics.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore.Storage;
+using Metrics.Data.Seeder;
 
 namespace Metrics
 {
@@ -35,8 +37,9 @@ namespace Metrics
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();//why are we adding
             services.AddRazorPages();
+            services.AddScoped<IDatabaseSeeder, DatabaseSeeder>();//why doing scoped
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,11 +80,12 @@ namespace Metrics
         {
             using(var scope = app.ApplicationServices.CreateScope())
             {
-                using (var context = scope.ServiceProvider.GetService<ApplicationDbContext>())
-                {
-                    context.Database.Migrate();
+                var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+                context.Database.Migrate();
+                var seeder = scope.ServiceProvider.GetService<IDatabaseSeeder>();
+                seeder.Seed();
                 }
             }
         }
     }
-}
+

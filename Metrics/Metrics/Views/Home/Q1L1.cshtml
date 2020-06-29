@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Q1L1 Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+//print out the name of the current process that the app is using
+<hi>@System.Diagnostics.Process.GetCurrentProcess().ProcessName</hi>
+
+
+<p>
+    <h1>This is a test</h1>
+    <br />
+    @Model.Message
+    <br />
+    <center>
+        <img src="~/images/image_1.jpg" />
+    </center>
+</p>
+
+<p>
+    <div>
+        <form>
+            <center>
+
+                <input type="text" />
+                <input type="submit" value="Submit" />
+
+            </center>
+        </form>
+
+    </div>
+</p>
+
+<th>
+    <a asp-action="submit" class="btn btn-outline-success">Next</a>
+</th>
+
+
