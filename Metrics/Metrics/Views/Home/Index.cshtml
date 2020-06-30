@@ -1,41 +1,106 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<link href="~/css/site.css" rel="stylesheet" />
+<html lang=" en">
+<head>
+    <style>
+        body {
+            background-image: url('images/backgroung image.jpg');
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="pageborder" class="text-center">
+        <div class="pt-3">
+            <header>
+                <h1 class="display-3">METRICS</h1>
+                <br>
+                <br><br><br><br><br>
+            </header>
+            </div>
+        </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-//print out the name of the current process that the app is using
-<hi>@System.Diagnostics.Process.GetCurrentProcess().ProcessName</hi>
+        <div class="container">
+
+            <div class="col-12">
+                <div class="pt-2">
+                    <center>
+
+                        <h2>Introduction</h2>
+                        <p>
+                            <b>
+                                The website in production will help teachers or parents or assistants who are facing challenges in teaching dyscalculia
+                                students and on a later stage, this software will support these affected children, where they will become user friendly at
+                                a later stage. This website is designed for the dyscalculia children to help them and make them more able to perform arithmatics
+                                computation with ease
+                            </b>
+                            <br>
+                            <br><br><br><br><br>
+
+                        </p>
+
+                    </center>
+                </div>
+            </div>
+
+            <div class="col-12">
+
+                <center>
+                    <h2>Our Features</h2>
+                    <p><b>Our 3 Primary Features -</b></p>
+                </center>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <center>
+                        <img width="150px" src="~/images/numbers.png" />
+
+                        <h4>Learning Numbers</h4>
+                        <p class="text-justify">
+                            Learn and play with numbers. Numbers play a great role and are an essential part in life.
+                            One has to learn and play with numbers while doing great tasks.
+                        </p>
+                    </center>
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <img width="250px" src="~/images/children.png" />
+                        <h4>Children</h4>
+                        <p class="text-justify">
+                            Take a test to enhance the capability of learning with numbers. Children will become much more efficient
+                            in learning through giving assessment.
+                        </p>
+                    </center>
+                </div>
 
 
-<p>
-    <h1>This is a test</h1>
-    <br />
-    @Model.Message
-    <br />
-    <center>
-        <img src="~/images/image_1.jpg" />
-    </center>
-</p>
 
-<p>
-    <div>
-        <form>
-            <center>
+                <div class="col-md-4">
+                    <center>
+                        <img width="150px" src="~/images/symbol.png" />
+                        <h4>Symbols</h4>
+                        <p class="text-justify">
+                            Learn and play with symbols. Play with symbols to acquire the skills of performing calculations.
 
-                <input type="text" />
-                <input type="submit" value="Submit" />
+                        </p>
+                    </center>
+                </div>
 
-            </center>
-        </form>
+            </div>
+        </div>
+</body>
 
-    </div>
-</p>
+</html>
 
-<th>
-    <a asp-action="submit" class="btn btn-outline-success">Next</a>
-</th>
+
+
+
+
+
+
 
 
