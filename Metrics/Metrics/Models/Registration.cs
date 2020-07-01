@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,14 +10,29 @@ namespace Metrics.Models
 {
     public class Registration
     {
-        public int Id { get; set; }
-        public static string Name { get; set; }
-        public static string Gender { get; set; }
-        public static int StudentId { get; set; }
-        public static string EmailAddress { get; set; }
-        public static int Age { get; set; }
-        public static int StartingTime { get; set; }
-        public static int EndingTime { get; set; }
-        public static int Estimationlevel { get; set; }
+        [Key]
+        public int RegistrationId { get; set; }
+
+        [Column(TypeName = "nvarchar(250)")]
+        [Required(ErrorMessage ="This field is required.")]
+        [DisplayName("Full Name")]
+        public string FullName { get; set; }
+
+        [Column(TypeName = "varchar(10)")]
+        [DisplayName("Gender")]
+        public string Gender { get; set; }
+
+        [Column(TypeName = "varchar(10)")]
+        [DisplayName("Age")]
+        public int Age { get; set; }
+
+        [Column(TypeName = "nvarchar(250)")]
+        [Required(ErrorMessage = "This field is required.")]
+        [DisplayName("Email Address")]
+        public string EmailAddress { get; set; }
+
+        
+
+        
     }
 }

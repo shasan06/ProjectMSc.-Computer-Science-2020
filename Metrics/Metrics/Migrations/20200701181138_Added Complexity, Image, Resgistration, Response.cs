@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Metrics.Migrations
 {
-    public partial class AddedComplexityRegistrationandResponse : Migration
+    public partial class AddedComplexityImageResgistrationResponse : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,7 +50,7 @@ namespace Metrics.Migrations
                 name: "Complexities",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LevelId = table.Column<int>(nullable: false),
                     Range = table.Column<int>(nullable: false),
@@ -62,19 +62,23 @@ namespace Metrics.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Complexities", x => x.Id);
+                    table.PrimaryKey("PK_Complexities", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Registrations",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                    RegistrationId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FullName = table.Column<string>(type: "nvarchar(250)", nullable: false),
+                    Gender = table.Column<string>(type: "varchar(10)", nullable: true),
+                    Age = table.Column<string>(type: "varchar(10)", nullable: false),
+                    EmailAddress = table.Column<string>(type: "nvarchar(250)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Registrations", x => x.Id);
+                    table.PrimaryKey("PK_Registrations", x => x.RegistrationId);
                 });
 
             migrationBuilder.CreateTable(
@@ -141,8 +145,8 @@ namespace Metrics.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -186,8 +190,8 @@ namespace Metrics.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -199,6 +203,39 @@ namespace Metrics.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Images",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    complexityid = table.Column<int>(nullable: true),
+                    RegistrationId = table.Column<int>(nullable: true),
+                    responseId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Images", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Images_Registrations_RegistrationId",
+                        column: x => x.RegistrationId,
+                        principalTable: "Registrations",
+                        principalColumn: "RegistrationId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Images_Complexities_complexityid",
+                        column: x => x.complexityid,
+                        principalTable: "Complexities",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Images_Responses_responseId",
+                        column: x => x.responseId,
+                        principalTable: "Responses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -239,6 +276,21 @@ namespace Metrics.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Images_RegistrationId",
+                table: "Images",
+                column: "RegistrationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Images_complexityid",
+                table: "Images",
+                column: "complexityid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Images_responseId",
+                table: "Images",
+                column: "responseId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -259,19 +311,22 @@ namespace Metrics.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Complexities");
-
-            migrationBuilder.DropTable(
-                name: "Registrations");
-
-            migrationBuilder.DropTable(
-                name: "Responses");
+                name: "Images");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Registrations");
+
+            migrationBuilder.DropTable(
+                name: "Complexities");
+
+            migrationBuilder.DropTable(
+                name: "Responses");
         }
     }
 }

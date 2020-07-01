@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Metrics.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200627154258_Added Complexity, Registration and Response")]
-    partial class AddedComplexityRegistrationandResponse
+    [Migration("20200701181138_Added Complexity, Image, Resgistration, Response")]
+    partial class AddedComplexityImageResgistrationResponse
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace Metrics.Migrations
 
             modelBuilder.Entity("Metrics.Models.Complexity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -49,19 +49,61 @@ namespace Metrics.Migrations
                     b.Property<int>("Subtract")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Complexities");
                 });
 
-            modelBuilder.Entity("Metrics.Models.Registration", b =>
+            modelBuilder.Entity("Metrics.Models.Image", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.HasKey("Id");
+                    b.Property<int?>("RegistrationId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("complexityid")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("responseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("RegistrationId");
+
+                    b.HasIndex("complexityid");
+
+                    b.HasIndex("responseId");
+
+                    b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("Metrics.Models.Registration", b =>
+                {
+                    b.Property<int>("RegistrationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Age")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("EmailAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("varchar(10)");
+
+                    b.HasKey("RegistrationId");
 
                     b.ToTable("Registrations");
                 });
@@ -239,12 +281,10 @@ namespace Metrics.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -281,12 +321,10 @@ namespace Metrics.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -294,6 +332,21 @@ namespace Metrics.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Metrics.Models.Image", b =>
+                {
+                    b.HasOne("Metrics.Models.Registration", "registration")
+                        .WithMany()
+                        .HasForeignKey("RegistrationId");
+
+                    b.HasOne("Metrics.Models.Complexity", "complexity")
+                        .WithMany()
+                        .HasForeignKey("complexityid");
+
+                    b.HasOne("Metrics.Models.Response", "response")
+                        .WithMany()
+                        .HasForeignKey("responseId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

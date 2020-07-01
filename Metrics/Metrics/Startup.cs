@@ -33,10 +33,7 @@ namespace Metrics
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ContextClass")));
             //ContextClass gets the string for the server in app.setting
-
-
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            
             services.AddControllersWithViews().AddRazorRuntimeCompilation();//why are we adding
             services.AddRazorPages();
             services.AddScoped<IDatabaseSeeder, DatabaseSeeder>();//why doing scoped
