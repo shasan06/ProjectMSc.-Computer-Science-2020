@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AzjWqkP5B6zRKepZVTPMBlMY2zTt2BC6kOJ6EjNIUyBiDXOOMeIVOHiR43JIlSvULu9pbCnduj6iJMegdD7/UQ==",
+  "dgSpecHash": "NuueESsXAt66MnD5YkO712C88vy5gKfYdduK92YtZqfF0Nwj1Rszo9mqjYNdR9Lw7LUdIo2LmaOn3r840LgcFg==",
   "success": true,
   "projectFilePath": "C:\\Users\\sabrina\\Desktop\\ProjectSetup\\ProjectMSc.-Computer-Science-2020\\Metrics\\Metrics\\Metrics.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,6 @@
     "C:\\Users\\sabrina\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.5\\microsoft.aspnetcore.cryptography.keyderivation.3.1.5.nupkg.sha512",
     "C:\\Users\\sabrina\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.5\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.5.nupkg.sha512",
     "C:\\Users\\sabrina\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
-    "C:\\Users\\sabrina\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.5\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.5.nupkg.sha512",
     "C:\\Users\\sabrina\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\3.1.5\\microsoft.aspnetcore.identity.ui.3.1.5.nupkg.sha512",
     "C:\\Users\\sabrina\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.0\\microsoft.aspnetcore.mvc.razor.extensions.3.1.0.nupkg.sha512",
     "C:\\Users\\sabrina\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\3.1.0\\microsoft.aspnetcore.mvc.razor.runtimecompilation.3.1.0.nupkg.sha512",

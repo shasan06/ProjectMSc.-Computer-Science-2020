@@ -33,6 +33,7 @@ namespace Metrics
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ContextClass")));
             //ContextClass gets the string for the server in app.setting
+
             
             services.AddControllersWithViews().AddRazorRuntimeCompilation();//why are we adding
             services.AddRazorPages();

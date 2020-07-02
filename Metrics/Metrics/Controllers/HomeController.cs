@@ -23,13 +23,16 @@ namespace Metrics.Controllers
 
         public IActionResult Index()
         {
-            var complexity = _context.Complexities.First();
-            var model = new HomeIndexModel()
-            {
-                Message = "Count",
-                Image = complexity.Image
-            };
-            return View(model);
+            //DELETE THIS, YOU DON'T SEEM TO BE USING IT
+            //var complexity = _context.Complexities.First();
+            //var model = new HomeIndexModel()
+            //{
+            //    Message = "Count",
+            //    Image = complexity.Image
+            //};
+
+
+            return View();
         }
         
 

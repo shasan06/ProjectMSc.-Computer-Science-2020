@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Metrics.Models
 {
+    //DELETE THIS AS YOU DON'T SEEM TO BE USING IT
     public class HomeIndexModel
     {
         public string Image { get; set; }
