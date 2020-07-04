@@ -9,7 +9,7 @@ namespace Metrics.Models
     {
         public int Id { get; set; }
         public int StudentId { get; set; }
-        public int MarksObtained { get; set; }
+        public double MarksObtained { get; set; }
         public int LevelId { get; set; }
         public string QuestionId { get; set; }
         public bool Answer { get; set; }

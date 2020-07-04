@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Metrics.Models
 {
-    public class Questions
+    public class Question
     {
         public int questionid { get; set; }
 
@@ -16,7 +16,8 @@ namespace Metrics.Models
         public int firstoperand { get; set; }
 
         public int secondoperand { get; set; }
-        public virtual ICollection<Image> Image { get; set; }
+
+        //public virtual ICollection<Image> Image { get; set; }
         //because one complexity can have multiple images
         //This will hold the name of the image
     }

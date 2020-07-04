@@ -9,9 +9,9 @@ namespace Metrics.Models
     {
         public int Id { get; set; }
         public int LevelId { get; set; }
-        public int Range { get; set; }
-        public int Operation { get; set; }
-        public int Speed { get; set; }
+        public string Range { get; set; }
+        public string Operation { get; set; }
+        public string Speed { get; set; }
        
 
     }
