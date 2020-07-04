@@ -42,24 +42,69 @@ namespace Metrics.Data.Seeder
             {
                 new Complexity()
                 {
-                    Add=1,
-                    Compare=1,
+                    Add=0,
+                    Compare=0,
                     Count=1,                    
                     LevelId=1,
-                    Range=1,
-                    Subtract=1,
+                    Range=0,
+                    Subtract=0,
                     //this is how you add multiple images to a complexity in the Seeder
                     Image = new List<Image>
                     {
                         new Image()
                         {
                             Title = "Image 1 for Complexity 1",
-                            ImageName = "Name"
+                            ImageName = "~/images/level1/image_1.jpg"
+
                         },
                         new Image()
                         {
-                            Title = "Image2 for Complexity 1",
-                            ImageName = "Name2"
+                            Title = "Image 2 for Complexity 1",
+                            ImageName = "~/images/level1/image_1of1.png"
+                        },
+                         new Image()
+                        {
+                            Title = "Image 3 for Complexity 1",
+                            ImageName = "~/images/level1/image_2.png"
+
+                        },
+                        new Image()
+                        {
+                            Title = "Image 4 for Complexity 1",
+                            ImageName = "~/images/level1/image_2of2.png"
+                        },
+                         new Image()
+                        {
+                            Title = "Image 5 for Complexity 1",
+                            ImageName = "~/images/level1/image_3.png"
+
+                        },
+                        new Image()
+                        {
+                            Title = "Image 6 for Complexity 1",
+                            ImageName = "~/images/level1/image_3of3.png"
+                        },
+                         new Image()
+                        {
+                            Title = "Image 7 for Complexity 1",
+                            ImageName = "~/images/level1/image_4.png"
+
+                        },
+                        new Image()
+                        {
+                            Title = "Image 8 for Complexity 1",
+                            ImageName = "~/images/level1/image_4of4.png"
+                        },
+                         new Image()
+                        {
+                            Title = "Image 9 for Complexity 1",
+                            ImageName = "~/images/level1/image_5.png"
+
+                        },
+                        new Image()
+                        {
+                            Title = "Image 10 for Complexity 1",
+                            ImageName = "~/images/level1/image_5of5.png"
                         },
                     }
                 },

@@ -16,6 +16,8 @@ namespace Metrics.Data
         public DbSet<Registration> Registrations { get; set; }
         public DbSet<Response> Responses { get; set; }
         public DbSet<Complexity> Complexities { get; set; }
+
+
         public DbSet<Image> Images { get; set; }
     }
 }

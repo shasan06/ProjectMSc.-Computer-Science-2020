@@ -9,10 +9,9 @@ namespace Metrics.Models
     {
         public int Id { get; set; }
         public int StudentId { get; set; }
-        public int Speed { get; set; }
-        public int Timestamp { get; set; }
+        public int MarksObtained { get; set; }
+        public int LevelId { get; set; }
         public string QuestionId { get; set; }
-        public string LevelId { get; set; }
         public bool Answer { get; set; }
     }
 }
