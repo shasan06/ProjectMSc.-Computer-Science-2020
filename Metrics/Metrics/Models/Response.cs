@@ -13,5 +13,6 @@ namespace Metrics.Models
         public int LevelId { get; set; }
         public string QuestionId { get; set; }
         public bool Answer { get; set; }
+        public string Test { get; set; }
     }
 }
