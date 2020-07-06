@@ -71,8 +71,8 @@ namespace Metrics.Controllers
             return View(registration);
         }
 
-        // GET: Registrations/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: Registrations/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
             //we have the delete of the type get
             
