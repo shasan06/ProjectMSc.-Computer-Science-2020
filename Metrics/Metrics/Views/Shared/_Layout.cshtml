@@ -22,7 +22,9 @@
     <script src="C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\bootstrap\js\popper.min.js"></script>
     <!--bootstrap js-->
     <script src="C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\bootstrap\js\bootstrap.min.js"></script>
-
+    <!--google font roboto-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -35,11 +37,13 @@
                     <img src="~/images/books.png" width="30" height="30" />
                     E-Learning
                 </a>
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Metrics</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Metrics</a>
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
@@ -64,7 +68,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted bg-light">
+    <footer class="border-top footer text-muted bg-info">
         <div class="container">
             &copy; 2020 - Metrics - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

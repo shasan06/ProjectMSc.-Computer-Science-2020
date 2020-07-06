@@ -31,6 +31,13 @@ namespace Metrics.Models
         [DisplayName("Email Address")]
         public string EmailAddress { get; set; }
 
+        [Column(TypeName = "nvarchar(250)")]
+        [Required(ErrorMessage = "This field is required.")]
+        public string Password { get; set; }
+
+        public int Level { get; set; }
+
+
         
 
         

@@ -29,6 +29,7 @@ namespace Metrics.Controllers
         }
 
         // GET: Registrations
+        //this method will show the registration form to the user
         public async Task<IActionResult> Index()
         {
             return View(await _context.Registrations.ToListAsync());
@@ -64,7 +65,9 @@ namespace Metrics.Controllers
 
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
             }
+
             return View(registration);
         }
 
@@ -72,7 +75,7 @@ namespace Metrics.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             //we have the delete of the type get
-            {
+            
 
                 var registration = await _context.Registrations.FindAsync(id);
                 _context.Registrations.Remove(registration);
@@ -80,8 +83,10 @@ namespace Metrics.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
+
+
     }
-}
+
                 
 
             
