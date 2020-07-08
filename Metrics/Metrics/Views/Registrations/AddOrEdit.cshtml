@@ -3,25 +3,25 @@
 @{
     ViewData["Title"] = "Create";
 }
+    <header>
+        <h4>Registration Form</h4>
+        <hr />
+    </header>
 
-<h4>Registration Form</h4>
-<hr />
 <div class="row">
     <div class="col-md-6">
         <form asp-action="AddOrEdit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="RegistrationId" />
+            <input type="hidden" asp-for="Level" />
             <div class="form-group">
                 <label asp-for="FullName" class="control-label"></label>
                 <input asp-for="FullName" class="form-control" />
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
+            
             <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label asp-for="Gender" class="control-label"></label>
-                    <input asp-for="Gender" class="form-control" />
-                    <span asp-validation-for="Gender" class="text-danger"></span>
-                </div>
+
                 <div class="form-group col-md-6">
                     <label asp-for="Age" class="control-label"></label>
                     <input asp-for="Age" class="form-control" />
@@ -34,9 +34,22 @@
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="EmailAddress" class="control-label"></label>
                 <input asp-for="EmailAddress" class="form-control" />
                 <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Gender" class="control-label"></label>
+                    <input type="radio" asp-for="Gender" name="Gender" value="M" />Male
+                    <input type="radio" asp-for="Gender" name="Gender" value="F" />Female
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
             </div>
             <!--></!-->
             <div class="form-row">
@@ -48,7 +61,8 @@
                 </div>
 
             </div>
-
+            
+            
         </form>
             
             
@@ -60,4 +74,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }

@@ -2,7 +2,7 @@
 
 namespace Metrics.Migrations
 {
-    public partial class AddedComplexityImageQuestionRegistrationResponse : Migration
+    public partial class ComplexityImageQuestionRegistrationResponse : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,7 +61,10 @@ namespace Metrics.Migrations
                     FullName = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     Gender = table.Column<string>(type: "varchar(10)", nullable: true),
                     Age = table.Column<string>(type: "varchar(10)", nullable: false),
-                    EmailAddress = table.Column<string>(type: "nvarchar(250)", nullable: false)
+                    EmailAddress = table.Column<string>(type: "nvarchar(250)", nullable: false),
+                    Password = table.Column<string>(nullable: false),
+                    ConfirmPassword = table.Column<string>(nullable: false),
+                    Level = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,11 +77,12 @@ namespace Metrics.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StudentId = table.Column<int>(nullable: false),
+                    RegistrationId = table.Column<int>(nullable: false),
                     MarksObtained = table.Column<double>(nullable: false),
                     LevelId = table.Column<int>(nullable: false),
                     QuestionId = table.Column<string>(nullable: true),
-                    Answer = table.Column<bool>(nullable: false)
+                    Answer = table.Column<bool>(nullable: false),
+                    Test = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

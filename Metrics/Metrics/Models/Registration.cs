@@ -29,11 +29,21 @@ namespace Metrics.Models
         [Column(TypeName = "nvarchar(250)")]
         [Required(ErrorMessage = "This field is required.")]
         [DisplayName("Email Address")]
+        [RegularExpression(@"^([\w-\.]+)@((\[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",ErrorMessage="Please enter valid EmailAddress")]
         public string EmailAddress { get; set; }
 
         [Column(TypeName = "nvarchar(250)")]
+        [DisplayName("Password")]
         [Required(ErrorMessage = "This field is required.")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [Column(TypeName = "nvarchar(250)")]
+        [DisplayName("ConfirmPassword")]
+        [Required(ErrorMessage = "This field is required.")]
+        [DataType(DataType.Password)]
+        [Compare("Password")]
+        public string ConfirmPassword { get; set; }
 
         public int Level { get; set; }
 

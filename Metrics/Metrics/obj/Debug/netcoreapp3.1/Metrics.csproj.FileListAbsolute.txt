@@ -448,3 +448,5 @@ C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\
 C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\obj\Debug\netcoreapp3.1\Metrics.csproj.CoreCompileInputs.cache
 C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\obj\Debug\netcoreapp3.1\Metrics.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\obj\Debug\netcoreapp3.1\Metrics.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\sabrina\Desktop\ProjectSetup\ProjectMSc.-Computer-Science-2020\Metrics\Metrics\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs

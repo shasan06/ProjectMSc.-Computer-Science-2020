@@ -95,6 +95,10 @@ namespace Metrics.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(10)");
 
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(250)");
+
                     b.Property<string>("EmailAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(250)");

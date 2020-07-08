@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Metrics.Data;
 using Metrics.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Metrics.Controllers
 {
@@ -51,55 +53,82 @@ namespace Metrics.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddorEdit([Bind("RegistrationId, FullName, Gender,  Age, EmailAddress")] Registration registration)
+        public async Task<IActionResult> AddorEdit([Bind("RegistrationId, FullName, Gender, Age, Password, ConfirmPassword, Level, EmailAddress")] Registration registration)
         {//we have the AddorEdit of the type Post
             if (ModelState.IsValid)
+
             {
-                //if the id is zero then we will do the insert operation otherwise we have to do the update operation
-                if (registration.RegistrationId == 0)
+                if (_context.Registrations.Where(u => u.FullName == registration.FullName).Any())
+                {
+                    //Do what do u need to do...
+                    //return ViewBag.Message = registration.FullName + " is already been taken. Please choose another name";
+                    //ViewBag.Message = registration.FullName + " is already been taken. Please choose another name";
+                    //ModelState.AddModelError(registration.FullName + " is already been taken. Please choose another name");
+                    ViewData.ModelState.AddModelError(string.Empty, registration.FullName + " is already been taken. Please choose another name");
+                    return View("~/Views/Registrations/AddOrEdit.cshtml");
+                    //return (RedirectToAction(nameof(Index)));
+                    //return (nameof(Registration));
+                }
+                else if (registration.RegistrationId == 0)//if the id is zero then we will do the insert operation otherwise we have to do the update operation
+                {
+                    var m = new Registration
+                    {
+                        FullName = registration.FullName,
+                        Gender = registration.Gender,
+                        Age = registration.Age,
+                        Password = registration.Password,
+                        ConfirmPassword = registration.ConfirmPassword,
+                        EmailAddress = registration.EmailAddress,
 
-                    _context.Add(registration);
+                    };
 
+                    _context.Registrations.Add(m);
+                    await _context.SaveChangesAsync();
+                    ModelState.Clear();
+                    ViewData.ModelState.AddModelError(string.Empty, registration.FullName + " is successfully registered.");
+                    return View("~/Views/Registrations/AddOrEdit.cshtml");
+                    //return RedirectToAction(nameof(Index));
+                    
+                    
+
+
+                }
                 else
                     _context.Update(registration);
 
+
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //ModelState.Clear();
+                //ViewData.ModelState.AddModelError(string.Empty, registration.FullName + " successfully registered.");
+
+                //return View("~/Views/Registrations/AddOrEdit.cshtml");//but here i want it to go to login after registration
+
 
             }
 
             return View(registration);
+
+
         }
 
         // GET: Registrations/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             //we have the delete of the type get
-            
 
-                var registration = await _context.Registrations.FindAsync(id);
-                _context.Registrations.Remove(registration);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+
+            var registration = await _context.Registrations.FindAsync(id);
+            _context.Registrations.Remove(registration);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
-
-
     }
 
-                
 
-            
-        
-
-        
-
-       
-
-        
+}
 
 
 
 
 
-        
+

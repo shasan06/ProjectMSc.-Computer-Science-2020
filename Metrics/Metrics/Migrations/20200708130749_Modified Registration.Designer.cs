@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Metrics.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200706212959_Modified Response, Registration")]
-    partial class ModifiedResponseRegistration
+    [Migration("20200708130749_Modified Registration")]
+    partial class ModifiedRegistration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,6 +97,10 @@ namespace Metrics.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(10)");
 
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EmailAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(250)");
@@ -113,7 +117,7 @@ namespace Metrics.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RegistrationId");
 
