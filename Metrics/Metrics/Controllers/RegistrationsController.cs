@@ -69,6 +69,9 @@ namespace Metrics.Controllers
                     //return (RedirectToAction(nameof(Index)));
                     //return (nameof(Registration));
                 }
+
+        
+
                 else if (registration.RegistrationId == 0)//if the id is zero then we will do the insert operation otherwise we have to do the update operation
                 {
                     var m = new Registration

@@ -43,6 +43,7 @@ namespace Metrics.Models
         [Required(ErrorMessage = "This field is required.")]
         [DataType(DataType.Password)]
         [Compare("Password")]
+        
         public string ConfirmPassword { get; set; }
 
         public int Level { get; set; }

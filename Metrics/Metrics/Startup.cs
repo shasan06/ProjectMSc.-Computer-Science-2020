@@ -34,10 +34,12 @@ namespace Metrics
                     Configuration.GetConnectionString("ContextClass")));
             //ContextClass gets the string for the server in app.setting
 
-            
+            services.AddMvc().AddSessionStateTempDataProvider();
+            services.AddSession();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();//why are we adding
             services.AddRazorPages();
             services.AddScoped<IDatabaseSeeder, DatabaseSeeder>();//why doing scoped
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +65,8 @@ namespace Metrics
             app.UseRouting();
 
             app.UseAuthentication();
+            app.UseSession();
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
