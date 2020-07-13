@@ -20,6 +20,7 @@ namespace Metrics.Models
 
         [Column(TypeName = "varchar(10)")]
         [DisplayName("Gender")]
+        [Required(ErrorMessage = "This field is required.")]
         public string Gender { get; set; }
 
         [Column(TypeName = "varchar(10)")]
