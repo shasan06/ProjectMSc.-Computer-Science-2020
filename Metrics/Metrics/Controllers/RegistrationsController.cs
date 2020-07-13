@@ -64,13 +64,17 @@ namespace Metrics.Controllers
                     //return ViewBag.Message = registration.FullName + " is already been taken. Please choose another name";
                     //ViewBag.Message = registration.FullName + " is already been taken. Please choose another name";
                     //ModelState.AddModelError(registration.FullName + " is already been taken. Please choose another name");
-                    ViewData.ModelState.AddModelError(string.Empty, registration.FullName + " is already been taken. Please choose another name");
-                    return View("~/Views/Registrations/AddOrEdit.cshtml");
+                    //ViewData.ModelState.AddModelError(string.Empty, registration.FullName + " is already been taken. Please choose another name");
+                    //return View("~/Views/Registrations/AddOrEdit.cshtml");
                     //return (RedirectToAction(nameof(Index)));
                     //return (nameof(Registration));
+                    //
+                    ViewData["Message"] = "This username is already been taken. Please choose another name";
+                    //return View("AddOrEdit", "Registrations");
+                    return View(registration);
                 }
 
-        
+
 
                 else if (registration.RegistrationId == 0)//if the id is zero then we will do the insert operation otherwise we have to do the update operation
                 {
@@ -88,8 +92,8 @@ namespace Metrics.Controllers
                     _context.Registrations.Add(m);
                     await _context.SaveChangesAsync();
                     ModelState.Clear();
-                    ViewData.ModelState.AddModelError(string.Empty, registration.FullName + " is successfully registered.");
-                    return View("~/Views/Registrations/AddOrEdit.cshtml");
+                    ViewData["Message"] = registration.FullName + " is successfully registered.";
+                    return View(registration);
                     //return RedirectToAction(nameof(Index));
                     
                     

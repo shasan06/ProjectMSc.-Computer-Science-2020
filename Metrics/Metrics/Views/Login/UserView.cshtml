@@ -1,8 +1,11 @@
 ﻿
 @{
     ViewData["Title"] = "UserView";
+    Layout = "_Layout";
 }
 
-<h1>UserView</h1>
+<h1>Welcome</h1>
 
-<h3>Welcome @TempData["username"]</h3>
+<ul>
+    @ViewData["Message"]
+</ul>

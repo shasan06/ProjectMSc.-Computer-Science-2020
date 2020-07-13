@@ -25,21 +25,25 @@ namespace Metrics.Controllers
             _context = context;
         }
 
-        // GET: Login
+        
         public async Task<IActionResult> Index()
         {
             //Get userinfo from Session
             //var userinfo = JsonConvert.DeserializeObject<Registration>(HttpContext.Session.GetString("SessionUser"));
-
             return View(await _context.Registrations.ToListAsync());
+            
         }
 
+        
 
+       //GET:Login
 
-        // GET: Login/Create=Login
-        public IActionResult Login()
+        public async Task<IActionResult> Login(int id = 0)
         {
-            return View();
+            if (id == 0)
+                return View(new Registration()); //this will insert a new registration if id=0
+            else
+                return View(_context.Registrations.Find(id));
         }
 
 
@@ -49,7 +53,7 @@ namespace Metrics.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(Registration user)
+        public async Task<IActionResult> Login([Bind("RegistrationId, FullName, Gender, Age, Password, ConfirmPassword, Level, EmailAddress")] Registration user)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +64,7 @@ namespace Metrics.Controllers
                 {
                     //var session = new Session().ToString();
                     //session = user.FullName;
-                    TempData["username"]=user.FullName;
+                    ViewData["Message"]= "Hello" + user.FullName;
                     return RedirectToAction("UserView","Login");//will go to login controllers, userview method
                     //the user is directed to its profile page
                     //The LoggedIn is a method will be the profile page of the user
@@ -69,8 +73,8 @@ namespace Metrics.Controllers
                 //if the Login fails then error message
                 else
                 {
-                    ViewData.ModelState.AddModelError("", "Username or Password is incorrect.");
-                    return View("~/Views/Login/Login.cshtml");
+                    ViewData["Message"]= "Username or Password is incorrect.";
+                    return View("Index", "Login");
 
                 }
 
@@ -85,13 +89,16 @@ namespace Metrics.Controllers
 
         }
 
+       
+
         public async Task<IActionResult> UserView()
         {
             //after successfull login request comes in this method
-            if(TempData["username"] ==null) // if the user comes to this page without login then return to Login whose action method is Index
+            if(ViewData["username"] ==null) // if the user comes to this page without login then return to Login whose action method is Index
             {
                 return RedirectToAction("Index","Login");
             }
+            
             await _context.SaveChangesAsync();
             return View();
         }
