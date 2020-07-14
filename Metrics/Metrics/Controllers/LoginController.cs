@@ -55,7 +55,7 @@ namespace Metrics.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login([Bind("RegistrationId, FullName, Gender, Age, Password, ConfirmPassword, Level, EmailAddress")] Registration user)
         {
-            //if (ModelState.IsValid)
+           // if (ModelState.IsValid)
             //{
                 //if in the database registered name and password matches with the user then get that entire row and store it in credentials which is done by first and default method
                 //var credentials = _context.Registrations.Where(u => u.FullName == user.FullName && u.Password == user.Password).FirstOrDefault();
@@ -64,8 +64,8 @@ namespace Metrics.Controllers
                 {
                     //var session = new Session().ToString();
                     //session = user.FullName;
-                    ViewData["Message"]= "Hello" + user.FullName;
-                    ViewData["username"] = user.FullName;
+                    ViewData["Message"]= "Hello " + user.FullName;
+                    //ViewData["username"] = user.FullName;
                     return View("UserView",user);//will go to login controllers, userview method
                     //the user is directed to its profile page
                     //The LoggedIn is a method will be the profile page of the user
