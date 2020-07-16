@@ -1,4 +1,4 @@
-﻿
+﻿@model Registration
 @{
     ViewData["Title"] = "UserView";
     Layout = "_Layout";
@@ -12,6 +12,8 @@
 
 <div class="form-row">
     <div class="form-group col-md-6">
-        <input type="submit" value="Start" class="btn btn-primary btn-block" />
+        @*<input type="submit" value="Start" class="btn btn-primary btn-block" />*@
+        <a class="btn btn-primary btn-block" href="@Url.Action("Index","Test", new { registrationId = Model.RegistrationId })" role="button">Start 1</a>
+        
     </div>
 </div>

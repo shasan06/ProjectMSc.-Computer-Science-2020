@@ -53,41 +53,45 @@ namespace Metrics.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login([Bind("RegistrationId, FullName, Gender, Age, Password, ConfirmPassword, Level, EmailAddress")] Registration user)
+        public IActionResult Login([Bind("RegistrationId, FullName, Gender, Age, Password, ConfirmPassword, Level, EmailAddress")] Registration user)
         {
-           // if (ModelState.IsValid)
+            // if (ModelState.IsValid)
             //{
-                //if in the database registered name and password matches with the user then get that entire row and store it in credentials which is done by first and default method
-                //var credentials = _context.Registrations.Where(u => u.FullName == user.FullName && u.Password == user.Password).FirstOrDefault();
-                //if in the database registered name and password matches with the user then grant the permission
-                if (_context.Registrations.Where(u => u.FullName == user.FullName && u.Password == user.Password).Any())
-                {
-                    //var session = new Session().ToString();
-                    //session = user.FullName;
-                    ViewData["Message"]= "Hello " + user.FullName;
-                    //ViewData["username"] = user.FullName;
-                    return View("UserView",user);//will go to login controllers, userview method
-                    //the user is directed to its profile page
-                    //The LoggedIn is a method will be the profile page of the user
-                }
+            //if in the database registered name and password matches with the user then get that entire row and store it in credentials which is done by first and default method
+            //var credentials = _context.Registrations.Where(u => u.FullName == user.FullName && u.Password == user.Password).FirstOrDefault();
+            //if in the database registered name and password matches with the user then grant the permission
+            var dbUser = _context.Registrations
+                         .Where(u => u.FullName == user.FullName && u.Password == user.Password)
+                         .FirstOrDefault();
 
-                //if the Login fails then error message
-                else
-                {
-                    ViewData["Message"]= "Username or Password is incorrect."; //msg not displayed*****
-                                                                               //return RedirectToAction ("AddOrEdit", "Registrations");
-                    return View("Login");
+            if (dbUser != null)
+            {
+                //var session = new Session().ToString();
+                //session = user.FullName;
+                ViewData["Message"] = "Hello " + dbUser.FullName;
+                //ViewData["username"] = user.FullName;
+                return View("UserView", dbUser);//will go to login controllers, userview method
+                                              //the user is directed to its profile page
+                                              //The LoggedIn is a method will be the profile page of the user
+            }
 
-                }
+            //if the Login fails then error message
+            else
+            {
+                ViewData["Message"] = "Username or Password is incorrect."; //msg not displayed*****
+                                                                            //return RedirectToAction ("AddOrEdit", "Registrations");
+                return View("Login");
+
+            }
 
 
             //}
             //await _context.SaveChangesAsync();
-           // return View();
+            // return View();
 
 
 
-                
+
 
         }
 

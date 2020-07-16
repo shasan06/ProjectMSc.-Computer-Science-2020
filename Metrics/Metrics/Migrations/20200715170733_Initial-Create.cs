@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Metrics.Migrations
 {
@@ -45,7 +46,15 @@ namespace Metrics.Migrations
                     levelid = table.Column<int>(nullable: false),
                     Opcode = table.Column<string>(nullable: true),
                     firstoperand = table.Column<int>(nullable: false),
-                    secondoperand = table.Column<int>(nullable: false)
+                    secondoperand = table.Column<int>(nullable: false),
+                    CorrectAnswer = table.Column<string>(nullable: true),
+                    Discriminator = table.Column<string>(nullable: false),
+                    Responseid = table.Column<int>(nullable: true),
+                    Testid = table.Column<int>(nullable: true),
+                    TestLevel = table.Column<int>(nullable: true),
+                    TimeStamp = table.Column<DateTime>(nullable: true),
+                    UserAnswer = table.Column<string>(nullable: true),
+                    MarkObtained = table.Column<double>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -70,24 +79,6 @@ namespace Metrics.Migrations
                 {
                     table.PrimaryKey("PK_Registrations", x => x.RegistrationId);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "Responses",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RegistrationId = table.Column<int>(nullable: false),
-                    MarksObtained = table.Column<double>(nullable: false),
-                    LevelId = table.Column<int>(nullable: false),
-                    QuestionId = table.Column<string>(nullable: true),
-                    Answer = table.Column<bool>(nullable: false),
-                    Test = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Responses", x => x.Id);
-                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -103,9 +94,6 @@ namespace Metrics.Migrations
 
             migrationBuilder.DropTable(
                 name: "Registrations");
-
-            migrationBuilder.DropTable(
-                name: "Responses");
         }
     }
 }

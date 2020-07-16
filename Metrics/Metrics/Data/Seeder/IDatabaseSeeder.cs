@@ -138,15 +138,17 @@ namespace Metrics.Data.Seeder
                     levelid = 1,
                     Opcode = "Count",
                     firstoperand = 1,
-                    secondoperand = '?'
-                },
+                    secondoperand = '?',
+                    CorrectAnswer = "1"
+    },
 
                new Question()
                 {
                     levelid = 1,
                     Opcode = "Count",
                     firstoperand = 2,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                     CorrectAnswer = "2"
                 },
 
                 new Question()
@@ -154,7 +156,8 @@ namespace Metrics.Data.Seeder
                     levelid = 1,
                     Opcode = "Count",
                     firstoperand = 3,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "3"
                 },
 
                 new Question()
@@ -162,7 +165,8 @@ namespace Metrics.Data.Seeder
                     levelid = 1,
                     Opcode = "Count",
                     firstoperand = 4,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "4"
                 },
 
                 new Question()
@@ -170,7 +174,8 @@ namespace Metrics.Data.Seeder
                     levelid = 1,
                     Opcode = "Count",
                     firstoperand = 5,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "5"
                 },
                 //level changes to 2
                 new Question()
@@ -178,7 +183,8 @@ namespace Metrics.Data.Seeder
                     levelid = 2,
                     Opcode = "Count",
                     firstoperand = 6,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "6"
                 },
 
                 new Question()
@@ -186,7 +192,8 @@ namespace Metrics.Data.Seeder
                     levelid = 2,
                     Opcode = "Count",
                     firstoperand = 7,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "7"
                 },
 
                  new Question()
@@ -194,7 +201,8 @@ namespace Metrics.Data.Seeder
                     levelid = 2,
                     Opcode = "Count",
                     firstoperand = 8,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "8"
                 },
 
                  new Question()
@@ -202,7 +210,8 @@ namespace Metrics.Data.Seeder
                     levelid = 2,
                     Opcode = "Count",
                     firstoperand = 9,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "9"
                 },
 
 
@@ -211,7 +220,8 @@ namespace Metrics.Data.Seeder
                     levelid = 2,
                     Opcode = "Count",
                     firstoperand = 10,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "10"
                 },
 
                  //level changes to 3
@@ -220,70 +230,80 @@ namespace Metrics.Data.Seeder
                     levelid = 3,
                     Opcode = "Count",
                     firstoperand = 11,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "11"
                 },
                 new Question()
                 {
                     levelid = 3,
                     Opcode = "Count",
                     firstoperand = 12,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "12"
                 },
                 new Question()
                 {
                     levelid = 3,
                     Opcode = "Count",
                     firstoperand = 13,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "13"
                 },
                 new Question()
                 {
                     levelid = 3,
                     Opcode = "Count",
                     firstoperand = 14,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "14"
                 },
                 new Question()
                 {
                     levelid = 3,
                     Opcode = "Count",
                     firstoperand = 15,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "15"
                 },
                 new Question()
                 {
                     levelid = 3,
                     Opcode = "Count",
                     firstoperand = 16,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "16"
                 },
                 new Question()
                 {
                     levelid = 3,
                     Opcode = "Count",
                     firstoperand = 17,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "17"
                 },
                 new Question()
                 {
                     levelid = 3,
                     Opcode = "Count",
                     firstoperand = 18,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "18"
                 },
                 new Question()
                 {
                     levelid = 3,
                     Opcode = "Count",
                     firstoperand = 19,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "19"
                 },
                 new Question()
                 {
                     levelid = 3,
                     Opcode = "Count",
                     firstoperand = 20,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "20"
                 },
 
                 //level changes to 4 compare within 5
@@ -293,70 +313,80 @@ namespace Metrics.Data.Seeder
                     levelid = 4,
                     Opcode = "Compare",
                     firstoperand = 1,
-                    secondoperand = 3
+                    secondoperand = 3,
+                    CorrectAnswer = "3"
                 },
                 new Question()
                 {
                     levelid = 4,
                     Opcode = "Compare",
                     firstoperand = 1,
-                    secondoperand = 4
+                    secondoperand = 4,
+                    CorrectAnswer = "4"
                 },
                 new Question()
                 {
                     levelid = 4,
                     Opcode = "Compare",
                     firstoperand = 2,
-                    secondoperand = 3
+                    secondoperand = 3,
+                    CorrectAnswer = "3"
                 },
                 new Question()
                 {
                     levelid = 4,
                     Opcode = "Compare",
                     firstoperand = 3,
-                    secondoperand = 5
+                    secondoperand = 5,
+                    CorrectAnswer = "5"
                 },
                 new Question()
                 {
                     levelid = 4,
                     Opcode = "Compare",
                     firstoperand = 1,
-                    secondoperand = 5
+                    secondoperand = 5,
+                    CorrectAnswer = "5"
                 },
                 new Question()
                 {
                     levelid = 4,
                     Opcode = "Compare",
                     firstoperand = 2,
-                    secondoperand = 4
+                    secondoperand = 4,
+                    CorrectAnswer = "4"
                 },
                 new Question()
                 {
                     levelid = 4,
                     Opcode = "Compare",
                     firstoperand = 3,
-                    secondoperand = 4
+                    secondoperand = 4,
+                    CorrectAnswer = "4"
                 },
                 new Question()
                 {
                     levelid = 4,
                     Opcode = "Compare",
                     firstoperand = 2,
-                    secondoperand = 5
+                    secondoperand = 5,
+                    CorrectAnswer = "5"
                 },
                 new Question()
                 {
                     levelid = 4,
                     Opcode = "Compare",
                     firstoperand = 5,
-                    secondoperand = 4
+                    secondoperand = 4,
+                    CorrectAnswer = "5"
                 },
                 new Question()
                 {
                     levelid = 4,
                     Opcode = "Compare",
                     firstoperand = 3,
-                    secondoperand = 1
+                    secondoperand = 1,
+                    CorrectAnswer = "3"
                 },
 
                 //level changes to 5 compare with in 6 to 10
@@ -366,70 +396,80 @@ namespace Metrics.Data.Seeder
                     levelid = 5,
                     Opcode = "Compare",
                     firstoperand = 6,
-                    secondoperand = 10
+                    secondoperand = 10,
+                    CorrectAnswer = "10"
                 },
                 new Question()
                 {
                     levelid = 5,
                     Opcode = "Compare",
                     firstoperand = 8,
-                    secondoperand = 9
+                    secondoperand = 9,
+                    CorrectAnswer = "9"
                 },
                 new Question()
                 {
                     levelid = 5,
                     Opcode = "Compare",
                     firstoperand = 7,
-                    secondoperand = 8
+                    secondoperand = 8,
+                    CorrectAnswer = "8"
                 },
                 new Question()
                 {
                     levelid = 5,
                     Opcode = "Compare",
                     firstoperand = 9,
-                    secondoperand = 10
+                    secondoperand = 10,
+                    CorrectAnswer = "10"
                 },
                 new Question()
                 {
                     levelid = 5,
                     Opcode = "Compare",
                     firstoperand = 10,
-                    secondoperand = 6
+                    secondoperand = 6,
+                    CorrectAnswer = "10"
                 },
                 new Question()
                 {
                     levelid = 5,
                     Opcode = "Compare",
                     firstoperand = 8,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "8"
                 },
                 new Question()
                 {
                     levelid = 5,
                     Opcode = "Compare",
                     firstoperand = 6,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "7"
                 },
                 new Question()
                 {
                     levelid = 5,
                     Opcode = "Compare",
                     firstoperand = 8,
-                    secondoperand = 6
+                    secondoperand = 6,
+                    CorrectAnswer = "8"
                 },
                 new Question()
                 {
                     levelid = 5,
                     Opcode = "Compare",
                     firstoperand = 9,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "9"
                 },
                 new Question()
                 {
                     levelid = 5,
                     Opcode = "Compare",
                     firstoperand = 10,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "10"
                 },
 
                 //level changes to 6 compare 11-20
@@ -438,35 +478,40 @@ namespace Metrics.Data.Seeder
                     levelid = 6,
                     Opcode = "Compare",
                     firstoperand = 11,
-                    secondoperand = 13
+                    secondoperand = 13,
+                    CorrectAnswer = "13"
                 },
                 new Question()
                 {
                     levelid = 6,
                     Opcode = "Compare",
                     firstoperand = 12,
-                    secondoperand = 14
+                    secondoperand = 14,
+                    CorrectAnswer = "14"
                 },
                 new Question()
                 {
                     levelid = 6,
                     Opcode = "Compare",
                     firstoperand = 13,
-                    secondoperand = 15
+                    secondoperand = 15,
+                    CorrectAnswer = "15"
                 },
                 new Question()
                 {
                     levelid = 6,
                     Opcode = "Compare",
                     firstoperand = 14,
-                    secondoperand = 18
+                    secondoperand = 18,
+                    CorrectAnswer = "18"
                 },
                  new Question()
                 {
                     levelid = 6,
                     Opcode = "Compare",
                     firstoperand = 19,
-                    secondoperand = 15
+                    secondoperand = 15,
+                    CorrectAnswer = "19"
                 },
 
                  new Question()
@@ -474,7 +519,8 @@ namespace Metrics.Data.Seeder
                     levelid = 6,
                     Opcode = "Compare",
                     firstoperand = 16,
-                    secondoperand = 20
+                    secondoperand = 20,
+                    CorrectAnswer = "20"
                 },
 
                   new Question()
@@ -482,14 +528,16 @@ namespace Metrics.Data.Seeder
                     levelid = 6,
                     Opcode = "Compare",
                     firstoperand = 17,
-                    secondoperand = 18
+                    secondoperand = 18,
+                    CorrectAnswer = "18"
                 },
                   new Question()
                 {
                     levelid = 6,
                     Opcode = "Compare",
                     firstoperand = 18,
-                    secondoperand = 19
+                    secondoperand = 19,
+                    CorrectAnswer = "19"
                 },
 
                   new Question()
@@ -497,14 +545,16 @@ namespace Metrics.Data.Seeder
                     levelid = 6,
                     Opcode = "Compare",
                     firstoperand = 20,
-                    secondoperand = 17
+                    secondoperand = 17,
+                    CorrectAnswer = "20"
                 },
                   new Question()
                 {
                     levelid = 6,
                     Opcode = "Compare",
                     firstoperand = 19,
-                    secondoperand = 13
+                    secondoperand = 13,
+                    CorrectAnswer = "19"
                 },
 
                   //level changes to 7, count 21-50
@@ -514,70 +564,80 @@ namespace Metrics.Data.Seeder
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 21,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "21"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 22,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "22"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 23,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "23"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 24,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "24"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 25,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "25"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 26,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "26"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 27,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "27"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 28,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "28"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 29,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "29"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 30,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "30"
                 },
 
                   new Question()
@@ -585,70 +645,80 @@ namespace Metrics.Data.Seeder
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 31,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "31"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 32,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "32"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 33,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "33"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 34,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "34"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 35,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "35"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 36,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "36"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 37,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "37"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 38,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "38"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 39,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "39"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 40,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "40"
                 },
 
                   new Question()
@@ -656,70 +726,80 @@ namespace Metrics.Data.Seeder
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 41,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "41"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 42,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "42"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 43,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "43"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 44,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "44"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 45,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "45"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 46,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "46"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 47,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "47"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 48,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "48"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 49,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "49"
                 },
                 new Question()
                 {
                     levelid = 7,
                     Opcode = "Count",
                     firstoperand = 50,
-                    secondoperand = '?'
+                    secondoperand = '?',
+                    CorrectAnswer = "50"
                 },
 
                 //level changes to 8 compare 21-50
@@ -728,35 +808,40 @@ namespace Metrics.Data.Seeder
                     levelid = 8,
                     Opcode = "Compare",
                     firstoperand = 21,
-                    secondoperand = 29
+                    secondoperand = 29,
+                    CorrectAnswer = "29"
                 },
                 new Question()
                 {
                     levelid = 8,
                     Opcode = "Compare",
                     firstoperand = 50,
-                    secondoperand = 48
+                    secondoperand = 48,
+                    CorrectAnswer = "50"
                 },
                 new Question()
                 {
                     levelid = 8,
                     Opcode = "Compare",
                     firstoperand = 37,
-                    secondoperand = 22
+                    secondoperand = 22,
+                    CorrectAnswer = "37"
                 },
                 new Question()
                 {
                     levelid = 8,
                     Opcode = "Compare",
                     firstoperand = 39,
-                    secondoperand = 49
+                    secondoperand = 49,
+                    CorrectAnswer = "49"
                 },
                  new Question()
                 {
                     levelid = 8,
                     Opcode = "Compare",
                     firstoperand = 44,
-                    secondoperand = 22
+                    secondoperand = 22,
+                    CorrectAnswer = "44"
                 },
 
                  new Question()
@@ -764,7 +849,8 @@ namespace Metrics.Data.Seeder
                     levelid = 8,
                     Opcode = "Compare",
                     firstoperand = 27,
-                    secondoperand = 47
+                    secondoperand = 47,
+                    CorrectAnswer = "47"
                 },
 
                   new Question()
@@ -772,14 +858,16 @@ namespace Metrics.Data.Seeder
                     levelid = 8,
                     Opcode = "Compare",
                     firstoperand = 25,
-                    secondoperand = 50
+                    secondoperand = 50,
+                    CorrectAnswer = "50"
                 },
                   new Question()
                 {
                     levelid = 8,
                     Opcode = "Compare",
                     firstoperand = 36,
-                    secondoperand = 39
+                    secondoperand = 39,
+                    CorrectAnswer = "39"
                 },
 
                   new Question()
@@ -787,14 +875,16 @@ namespace Metrics.Data.Seeder
                     levelid = 8,
                     Opcode = "Compare",
                     firstoperand = 41,
-                    secondoperand = 31
+                    secondoperand = 31,
+                    CorrectAnswer = "41"
                 },
                   new Question()
                 {
                     levelid = 8,
                     Opcode = "Compare",
                     firstoperand = 38,
-                    secondoperand = 31
+                    secondoperand = 31,
+                    CorrectAnswer = "38"
                 },
 
                   //level changes to 9 dealing with addition within 5
@@ -804,70 +894,80 @@ namespace Metrics.Data.Seeder
                     levelid = 9,
                     Opcode = "+",
                     firstoperand = 1,
-                    secondoperand = 3
+                    secondoperand = 3,
+                    CorrectAnswer = "4"
                 },
                 new Question()
                 {
                     levelid = 9,
                     Opcode = "+",
                     firstoperand = 1,
-                    secondoperand = 4
+                    secondoperand = 4,
+                    CorrectAnswer = "5"
                 },
                 new Question()
                 {
                     levelid = 9,
                     Opcode = "+",
                     firstoperand = 2,
-                    secondoperand = 3
+                    secondoperand = 3,
+                    CorrectAnswer = "5"
                 },
                 new Question()
                 {
                     levelid = 9,
                     Opcode = "+",
                     firstoperand = 3,
-                    secondoperand = 5
+                    secondoperand = 5,
+                    CorrectAnswer = "8"
                 },
                 new Question()
                 {
                     levelid = 9,
                     Opcode = "+",
                     firstoperand = 1,
-                    secondoperand = 5
+                    secondoperand = 5,
+                    CorrectAnswer = "6"
                 },
                 new Question()
                 {
                     levelid = 9,
                     Opcode = "+",
                     firstoperand = 2,
-                    secondoperand = 4
+                    secondoperand = 4,
+                    CorrectAnswer = "6"
                 },
                 new Question()
                 {
                     levelid = 9,
                     Opcode = "+",
                     firstoperand = 3,
-                    secondoperand = 4
+                    secondoperand = 4,
+                    CorrectAnswer = "7"
                 },
                 new Question()
                 {
                     levelid = 9,
                     Opcode = "+",
                     firstoperand = 2,
-                    secondoperand = 5
+                    secondoperand = 5,
+                    CorrectAnswer = "7"
                 },
                 new Question()
                 {
                     levelid = 9,
                     Opcode = "+",
                     firstoperand = 5,
-                    secondoperand = 4
+                    secondoperand = 4,
+                    CorrectAnswer = "9"
                 },
                 new Question()
                 {
                     levelid = 9,
                     Opcode = "+",
                     firstoperand = 3,
-                    secondoperand = 1
+                    secondoperand = 1,
+                    CorrectAnswer = "4"
                 },
 
                  //level changes to 10 dealing with subtraction within 5
@@ -877,70 +977,80 @@ namespace Metrics.Data.Seeder
                     levelid = 10,
                     Opcode = "-",
                     firstoperand = 3,
-                    secondoperand = 1
+                    secondoperand = 1,
+                    CorrectAnswer = "2"
                 },
                 new Question()
                 {
                     levelid = 10,
                     Opcode = "-",
                     firstoperand = 4,
-                    secondoperand = 1
+                    secondoperand = 1,
+                    CorrectAnswer = "3",
                 },
                 new Question()
                 {
                     levelid = 10,
                     Opcode = "-",
                     firstoperand = 3,
-                    secondoperand = 2
+                    secondoperand = 2,
+                    CorrectAnswer = "1"
                 },
                 new Question()
                 {
                     levelid = 10,
                     Opcode = "-",
                     firstoperand = 5,
-                    secondoperand = 3
+                    secondoperand = 3,
+                    CorrectAnswer = "2"
                 },
                 new Question()
                 {
                     levelid = 10,
                     Opcode = "-",
                     firstoperand = 5,
-                    secondoperand = 1
+                    secondoperand = 1,
+                    CorrectAnswer = "4"
                 },
                 new Question()
                 {
                     levelid = 10,
                     Opcode = "-",
                     firstoperand = 4,
-                    secondoperand = 2
+                    secondoperand = 2,
+                    CorrectAnswer = "2"
                 },
                 new Question()
                 {
                     levelid = 10,
                     Opcode = "-",
                     firstoperand = 4,
-                    secondoperand = 3
+                    secondoperand = 3,
+                    CorrectAnswer = "1"
                 },
                 new Question()
                 {
                     levelid = 10,
                     Opcode = "-",
                     firstoperand = 5,
-                    secondoperand = 2
+                    secondoperand = 2,
+                    CorrectAnswer = "3"
                 },
                 new Question()
                 {
                     levelid = 10,
                     Opcode = "-",
                     firstoperand = 5,
-                    secondoperand = 4
+                    secondoperand = 4,
+                    CorrectAnswer = "1"
                 },
                 new Question()
                 {
                     levelid = 10,
                     Opcode = "-",
                     firstoperand = 3,
-                    secondoperand = 1
+                    secondoperand = 1,
+                    CorrectAnswer = "2"
                 },
 
                 //level changes to 11 add within 6--10
@@ -950,70 +1060,80 @@ namespace Metrics.Data.Seeder
                     levelid = 11,
                     Opcode = "+",
                     firstoperand = 6,
-                    secondoperand = 10
+                    secondoperand = 10,
+                    CorrectAnswer = "16"
                 },
                 new Question()
                 {
                     levelid = 11,
                     Opcode = "+",
                     firstoperand = 8,
-                    secondoperand = 9
+                    secondoperand = 9,
+                    CorrectAnswer = "17"
                 },
                 new Question()
                 {
                     levelid = 11,
                     Opcode = "+",
                     firstoperand = 7,
-                    secondoperand = 8
+                    secondoperand = 8,
+                    CorrectAnswer = "15"
                 },
                 new Question()
                 {
                     levelid = 11,
                     Opcode = "+",
                     firstoperand = 9,
-                    secondoperand = 10
+                    secondoperand = 10,
+                    CorrectAnswer = "19"
                 },
                 new Question()
                 {
                     levelid = 11,
                     Opcode = "+",
                     firstoperand = 10,
-                    secondoperand = 6
+                    secondoperand = 6,
+                    CorrectAnswer = "16"
                 },
                 new Question()
                 {
                     levelid = 11,
                     Opcode = "+",
                     firstoperand = 8,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "15"
                 },
                 new Question()
                 {
                     levelid = 11,
                     Opcode = "+",
                     firstoperand = 6,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "13"
                 },
                 new Question()
                 {
                     levelid = 11,
                     Opcode = "+",
                     firstoperand = 8,
-                    secondoperand = 6
+                    secondoperand = 6,
+                    CorrectAnswer = "14"
                 },
                 new Question()
                 {
                     levelid = 11,
                     Opcode = "+",
                     firstoperand = 9,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "16"
                 },
                 new Question()
                 {
                     levelid = 11,
                     Opcode = "+",
                     firstoperand = 10,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "17"
                 },
 
                 //level changes to 12 subtract within 6--10  
@@ -1022,70 +1142,80 @@ namespace Metrics.Data.Seeder
                     levelid = 12,
                     Opcode = "-",
                     firstoperand = 10,
-                    secondoperand = 6
+                    secondoperand = 6,
+                    CorrectAnswer = "4"
                 },
                 new Question()
                 {
                     levelid = 12,
                     Opcode = "-",
                     firstoperand = 9,
-                    secondoperand = 8
+                    secondoperand = 8,
+                    CorrectAnswer = "1"
                 },
                 new Question()
                 {
                     levelid = 12,
                     Opcode = "-",
                     firstoperand = 8,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "1"
                 },
                 new Question()
                 {
                     levelid = 12,
                     Opcode = "-",
                     firstoperand = 10,
-                    secondoperand = 10
+                    secondoperand = 10,
+                    CorrectAnswer = "0"
                 },
                 new Question()
                 {
                     levelid = 12,
                     Opcode = "-",
                     firstoperand = 9,
-                    secondoperand = 6
+                    secondoperand = 6,
+                    CorrectAnswer = "3"
                 },
                 new Question()
                 {
                     levelid = 12,
                     Opcode = "-",
                     firstoperand = 7,
-                    secondoperand = 5
+                    secondoperand = 5,
+                    CorrectAnswer = "2"
                 },
                 new Question()
                 {
                     levelid = 12,
                     Opcode = "-",
                     firstoperand = 10,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "3"
                 },
                 new Question()
                 {
                     levelid = 12,
                     Opcode = "-",
                     firstoperand = 8,
-                    secondoperand = 6
+                    secondoperand = 6,
+                    CorrectAnswer = "2"
                 },
                 new Question()
                 {
                     levelid = 12,
                     Opcode = "-",
                     firstoperand = 9,
-                    secondoperand = 7
+                    secondoperand = 7,
+                    CorrectAnswer = "2"
                 },
                 new Question()
                 {
                     levelid = 12,
                     Opcode = "-",
                     firstoperand = 10,
-                    secondoperand = 8
+                    secondoperand = 8,
+                    CorrectAnswer = "2"
                 },
 
                 //level changes to 13 add within 11-20
@@ -1095,35 +1225,40 @@ namespace Metrics.Data.Seeder
                     levelid = 13,
                     Opcode = "+",
                     firstoperand = 11,
-                    secondoperand = 13
+                    secondoperand = 13,
+                    CorrectAnswer = "24"
                 },
                 new Question()
                 {
                     levelid = 13,
                     Opcode = "+",
                     firstoperand = 12,
-                    secondoperand = 14
+                    secondoperand = 14,
+                    CorrectAnswer = "26"
                 },
                 new Question()
                 {
                     levelid = 13,
                     Opcode = "+",
                     firstoperand = 13,
-                    secondoperand = 15
+                    secondoperand = 15,
+                    CorrectAnswer = "28"
                 },
                 new Question()
                 {
                     levelid = 13,
                     Opcode = "+",
                     firstoperand = 14,
-                    secondoperand = 18
+                    secondoperand = 18,
+                    CorrectAnswer = "32"
                 },
                  new Question()
                 {
                     levelid = 13,
                     Opcode = "+",
                     firstoperand = 19,
-                    secondoperand = 15
+                    secondoperand = 15,
+                    CorrectAnswer = "34"
                 },
 
                  new Question()
@@ -1131,7 +1266,8 @@ namespace Metrics.Data.Seeder
                     levelid = 13,
                     Opcode = "+",
                     firstoperand = 16,
-                    secondoperand = 20
+                    secondoperand = 20,
+                    CorrectAnswer = "36"
                 },
 
                   new Question()
@@ -1139,14 +1275,16 @@ namespace Metrics.Data.Seeder
                     levelid = 13,
                     Opcode = "+",
                     firstoperand = 17,
-                    secondoperand = 18
+                    secondoperand = 18,
+                    CorrectAnswer = "35"
                 },
                   new Question()
                 {
                     levelid = 13,
                     Opcode = "+",
                     firstoperand = 18,
-                    secondoperand = 19
+                    secondoperand = 19,
+                    CorrectAnswer = "37"
                 },
 
                   new Question()
@@ -1154,14 +1292,16 @@ namespace Metrics.Data.Seeder
                     levelid = 13,
                     Opcode = "+",
                     firstoperand = 20,
-                    secondoperand = 17
+                    secondoperand = 17,
+                    CorrectAnswer = "37"
                 },
                   new Question()
                 {
                     levelid = 13,
                     Opcode = "+",
                     firstoperand = 19,
-                    secondoperand = 13
+                    secondoperand = 13,
+                    CorrectAnswer = "32"
                 },
 
                   //level changes to 14 subtract with =in 11-20
@@ -1170,35 +1310,40 @@ namespace Metrics.Data.Seeder
                     levelid = 14,
                     Opcode = "-",
                     firstoperand = 13,
-                    secondoperand = 11
+                    secondoperand = 11,
+                    CorrectAnswer = "2"
                 },
                 new Question()
                 {
                     levelid = 14,
                     Opcode = "-",
                     firstoperand = 14,
-                    secondoperand = 12
+                    secondoperand = 12,
+                    CorrectAnswer = "2"
                 },
                 new Question()
                 {
                     levelid = 14,
                     Opcode = "-",
                     firstoperand = 15,
-                    secondoperand = 13
+                    secondoperand = 13,
+                    CorrectAnswer = "2"
                 },
                 new Question()
                 {
                     levelid = 14,
                     Opcode = "-",
                     firstoperand = 18,
-                    secondoperand = 15
+                    secondoperand = 15,
+                    CorrectAnswer = "3"
                 },
                  new Question()
                 {
                     levelid = 14,
                     Opcode = "-",
                     firstoperand = 19,
-                    secondoperand = 11
+                    secondoperand = 11,
+                    CorrectAnswer = "8"
                 },
 
                  new Question()
@@ -1206,7 +1351,8 @@ namespace Metrics.Data.Seeder
                     levelid = 14,
                     Opcode = "-",
                     firstoperand = 20,
-                    secondoperand = 16
+                    secondoperand = 16,
+                    CorrectAnswer = "4"
                 },
 
                   new Question()
@@ -1214,14 +1360,16 @@ namespace Metrics.Data.Seeder
                     levelid = 14,
                     Opcode = "-",
                     firstoperand = 18,
-                    secondoperand = 17
+                    secondoperand = 17,
+                    CorrectAnswer = "1"
                 },
                   new Question()
                 {
                     levelid = 14,
                     Opcode = "-",
                     firstoperand = 19,
-                    secondoperand = 19
+                    secondoperand = 19,
+                    CorrectAnswer = "0"
                 },
 
                   new Question()
@@ -1229,14 +1377,16 @@ namespace Metrics.Data.Seeder
                     levelid = 14,
                     Opcode = "-",
                     firstoperand = 20,
-                    secondoperand = 17
+                    secondoperand = 17,
+                    CorrectAnswer = "3"
                 },
                   new Question()
                 {
                     levelid = 14,
                     Opcode = "-",
                     firstoperand = 19,
-                    secondoperand = 13
+                    secondoperand = 13,
+                    CorrectAnswer = "6"
                 },
 
                   //level changes to 15 add within 21--50
@@ -1246,35 +1396,40 @@ namespace Metrics.Data.Seeder
                     levelid = 15,
                     Opcode = "+",
                     firstoperand = 21,
-                    secondoperand = 29
+                    secondoperand = 29,
+                    CorrectAnswer = "50"
                 },
                 new Question()
                 {
                     levelid = 15,
                     Opcode = "+",
                     firstoperand = 50,
-                    secondoperand = 48
+                    secondoperand = 48,
+                    CorrectAnswer = "98"
                 },
                 new Question()
                 {
                     levelid = 15,
                     Opcode = "+",
                     firstoperand = 37,
-                    secondoperand = 22
+                    secondoperand = 22,
+                    CorrectAnswer = "59"
                 },
                 new Question()
                 {
                     levelid = 15,
                     Opcode = "+",
                     firstoperand = 39,
-                    secondoperand = 49
+                    secondoperand = 49,
+                    CorrectAnswer = "88"
                 },
                  new Question()
                 {
                     levelid = 15,
                     Opcode = "+",
                     firstoperand = 44,
-                    secondoperand = 22
+                    secondoperand = 22,
+                    CorrectAnswer = "66"
                 },
 
                  new Question()
@@ -1282,7 +1437,8 @@ namespace Metrics.Data.Seeder
                     levelid = 15,
                     Opcode = "+",
                     firstoperand = 27,
-                    secondoperand = 47
+                    secondoperand = 47,
+                    CorrectAnswer = "74"
                 },
 
                   new Question()
@@ -1290,14 +1446,16 @@ namespace Metrics.Data.Seeder
                     levelid = 15,
                     Opcode = "+",
                     firstoperand = 25,
-                    secondoperand = 50
+                    secondoperand = 50,
+                    CorrectAnswer = "75"
                 },
                   new Question()
                 {
                     levelid = 15,
                     Opcode = "+",
                     firstoperand = 36,
-                    secondoperand = 39
+                    secondoperand = 39,
+                    CorrectAnswer = "75"
                 },
 
                   new Question()
@@ -1305,14 +1463,16 @@ namespace Metrics.Data.Seeder
                     levelid = 15,
                     Opcode = "+",
                     firstoperand = 41,
-                    secondoperand = 31
+                    secondoperand = 31,
+                    CorrectAnswer = "72"
                 },
                   new Question()
                 {
                     levelid = 15,
                     Opcode = "+",
                     firstoperand = 38,
-                    secondoperand = 31
+                    secondoperand = 31,
+                    CorrectAnswer = "69"
                 },
 
                   //level changes to 16 subtract within 21--50
@@ -1321,35 +1481,40 @@ namespace Metrics.Data.Seeder
                     levelid = 16,
                     Opcode = "-",
                     firstoperand = 29,
-                    secondoperand = 21
+                    secondoperand = 21,
+                    CorrectAnswer = "8"
                 },
                 new Question()
                 {
                     levelid = 16,
                     Opcode = "-",
                     firstoperand = 50,
-                    secondoperand = 48
+                    secondoperand = 48,
+                    CorrectAnswer = "2"
                 },
                 new Question()
                 {
                     levelid = 16,
                     Opcode = "-",
                     firstoperand = 37,
-                    secondoperand = 22
+                    secondoperand = 22,
+                    CorrectAnswer = "15"
                 },
                 new Question()
                 {
                     levelid = 16,
                     Opcode = "-",
                     firstoperand = 49,
-                    secondoperand = 39
+                    secondoperand = 39,
+                    CorrectAnswer = "10"
                 },
                  new Question()
                 {
                     levelid = 16,
                     Opcode = "-",
                     firstoperand = 44,
-                    secondoperand = 22
+                    secondoperand = 22,
+                    CorrectAnswer = "22"
                 },
 
                  new Question()
@@ -1357,7 +1522,8 @@ namespace Metrics.Data.Seeder
                     levelid = 16,
                     Opcode = "-",
                     firstoperand = 47,
-                    secondoperand = 27
+                    secondoperand = 27,
+                    CorrectAnswer = "20"
                 },
 
                   new Question()
@@ -1365,14 +1531,16 @@ namespace Metrics.Data.Seeder
                     levelid = 16,
                     Opcode = "-",
                     firstoperand = 50,
-                    secondoperand = 45
+                    secondoperand = 45,
+                    CorrectAnswer = "5"
                 },
                   new Question()
                 {
                     levelid = 16,
                     Opcode = "-",
                     firstoperand = 39,
-                    secondoperand = 36
+                    secondoperand = 36,
+                    CorrectAnswer = "3"
                 },
 
                   new Question()
@@ -1380,14 +1548,16 @@ namespace Metrics.Data.Seeder
                     levelid = 16,
                     Opcode = "-",
                     firstoperand = 41,
-                    secondoperand = 31
+                    secondoperand = 31,
+                    CorrectAnswer = "10"
                 },
                   new Question()
                 {
                     levelid = 16,
                     Opcode = "-",
                     firstoperand = 38,
-                    secondoperand = 31
+                    secondoperand = 31,
+                    CorrectAnswer = "7"
                 },
             };
 
@@ -1526,7 +1696,7 @@ namespace Metrics.Data.Seeder
 
         }
 
-
+    
 
         public void Seed()
         {
