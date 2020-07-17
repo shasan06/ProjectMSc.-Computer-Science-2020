@@ -8,15 +8,21 @@
 {
     <p>There are no tests associated with the user</p>
     @*<img src="~/images/image/image_1.jpg" />*@
-    
+
 }
 else
 {
     @foreach (var test in Model)
     {
         <p>This is the test ID for this test: @test.Testid</p>
-        
+
         <img src="~/images/image/@test.ImageName" />
+        int k = 4;
+        for (int i= 0; i < k; i++)
+        {
+            @Html.DisplayFor(modelitem => test.TestsQ[0])
+        }
+
     }
 }
 

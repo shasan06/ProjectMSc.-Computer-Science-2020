@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Metrics.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200715170733_Initial-Create")]
+    [Migration("20200716194805_Initial-Create")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -73,10 +73,6 @@ namespace Metrics.Migrations
                     b.Property<string>("CorrectAnswer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Opcode")
                         .HasColumnType("nvarchar(max)");
 
@@ -92,8 +88,6 @@ namespace Metrics.Migrations
                     b.HasKey("questionid");
 
                     b.ToTable("Questions");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Question");
                 });
 
             modelBuilder.Entity("Metrics.Models.Registration", b =>
@@ -135,29 +129,28 @@ namespace Metrics.Migrations
                     b.ToTable("Registrations");
                 });
 
-            modelBuilder.Entity("Metrics.Models.Response", b =>
+            modelBuilder.Entity("Metrics.Models.TestPermanentTable", b =>
                 {
-                    b.HasBaseType("Metrics.Models.Question");
+                    b.Property<int>("TestPermanentTableid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("MarkObtained")
+                    b.Property<int>("Registrationid")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Score")
                         .HasColumnType("float");
 
-                    b.Property<int>("Responseid")
-                        .HasColumnType("int");
-
                     b.Property<int>("TestLevel")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Testid")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("TimeStamp")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserAnswer")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("TestPermanentTableid");
 
-                    b.HasDiscriminator().HasValue("Response");
+                    b.ToTable("TestPermanentTables");
                 });
 #pragma warning restore 612, 618
         }

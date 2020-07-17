@@ -47,14 +47,7 @@ namespace Metrics.Migrations
                     Opcode = table.Column<string>(nullable: true),
                     firstoperand = table.Column<int>(nullable: false),
                     secondoperand = table.Column<int>(nullable: false),
-                    CorrectAnswer = table.Column<string>(nullable: true),
-                    Discriminator = table.Column<string>(nullable: false),
-                    Responseid = table.Column<int>(nullable: true),
-                    Testid = table.Column<int>(nullable: true),
-                    TestLevel = table.Column<int>(nullable: true),
-                    TimeStamp = table.Column<DateTime>(nullable: true),
-                    UserAnswer = table.Column<string>(nullable: true),
-                    MarkObtained = table.Column<double>(nullable: true)
+                    CorrectAnswer = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -79,6 +72,22 @@ namespace Metrics.Migrations
                 {
                     table.PrimaryKey("PK_Registrations", x => x.RegistrationId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "TestPermanentTables",
+                columns: table => new
+                {
+                    TestPermanentTableid = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Registrationid = table.Column<int>(nullable: false),
+                    TestLevel = table.Column<int>(nullable: false),
+                    TimeStamp = table.Column<DateTime>(nullable: false),
+                    Score = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TestPermanentTables", x => x.TestPermanentTableid);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -94,6 +103,9 @@ namespace Metrics.Migrations
 
             migrationBuilder.DropTable(
                 name: "Registrations");
+
+            migrationBuilder.DropTable(
+                name: "TestPermanentTables");
         }
     }
 }

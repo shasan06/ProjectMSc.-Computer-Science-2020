@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Metrics.Models
 {
-    //Responses is inherited from Questions
-    public class Response : Question
+    //This Test Table will be permanent after the test presented from temporarytest table it will be stored here
+    public class TestPermanentTable
     {
-        public int Responseid { get; set; }
+        
         //it will have a composite key = questionid, testid, registrationid
-        public int Testid { get; set; }
+        
+        public int TestPermanentTableid { get; set; }
 
         public int Registrationid { get; set; }
         //This wil be a level which contains collection of 10 qusetions for the test
@@ -20,8 +21,8 @@ namespace Metrics.Models
 
         public DateTime TimeStamp { get; set; }
 
-        public string UserAnswer { get; set; }
+        public double Score { get; set; }
 
-        public double MarkObtained { get; set; }
+        
     }
 }
