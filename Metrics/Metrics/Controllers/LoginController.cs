@@ -44,7 +44,9 @@ namespace Metrics.Controllers
                 return View(new Registration()); //this will insert a new registration if id=0
             else
                 return View(_context.Registrations.Find(id));
+
         }
+
 
 
 

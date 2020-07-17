@@ -6,7 +6,7 @@
 
 @if (!Model.Any())
 {
-    <p>There are no tests associated with the user</p>
+    <p>There are no tests associated with the user</p>;
     @*<img src="~/images/image/image_1.jpg" />*@
 
 }
@@ -14,15 +14,39 @@ else
 {
     @foreach (var test in Model)
     {
-        <p>This is the test ID for this test: @test.Testid</p>
+        <p>This is the test ID for this test: @test.Testid</p>;
 
-        <img src="~/images/image/@test.ImageName" />
+
         int k = 4;
-        for (int i= 0; i < k; i++)
+        for (int i = 0; i < k; i++)
         {
-            @Html.DisplayFor(modelitem => test.TestsQ[0])
+            @switch (test.TestsQ[i].Opcode)
+            {
+                case "Count":
+                    for (int j = 0; j < test.TestsQ[i].firstoperand; j++)
+                    {
+                        <img src="~/images/image/@test.ImageName" />
+;
+
+                    }
+                    <div class="form-group col-md-6">
+                        <input type="text" value="" class="text-capitalize" />
+                        
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="submit" value="Submit" />
+                    </div>
+                    break;
+
+
+
+            }
+
         }
+
+
 
     }
 }
+
 
