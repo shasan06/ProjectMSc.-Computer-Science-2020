@@ -14,7 +14,7 @@ else
 {
     @foreach (var test in Model)
     {
-        <p>This is the test ID for this test: @test.Testid</p>;
+        <!--This is the test ID for this test:-->// @test.Testid;
 
 
         int k = 10;
@@ -23,30 +23,62 @@ else
             @switch (test.TestsQ[i].Opcode)
             {
                 case "Count":
+
+                    <h3>Count</h3>
                     for (int j = 0; j < test.TestsQ[i].firstoperand; j++)
                     {
                         <img src="~/images/image/@test.ImageName[i]" width="80" height="80" />
-;
+                        ;
+
 
                     }
                     <div class="form-group col-md-6">
                         <input type="text" value="" class="text-capitalize" />
-                        
+
                     </div>
-                    <div class="form-group col-md-6">
-                        <input type="submit" value="Submit" />
-                    </div>
+
                     break;
 
+                case "Compare":
+                    <h3>Compare The Largest Numbers</h3>
+                    <h2> @test.TestsQ[i].firstoperand         @test.TestsQ[i].secondoperand</h2>
+                    <div class="form-group col-md-6">
+                        <input type="text" value="" class="text-capitalize" />
+
+                    </div>
+
+
+                    break;
+
+                case "+":
+                    <h3>Add The Two Numbers</h3>
+                    <h2> @test.TestsQ[i].firstoperand     @test.TestsQ[i].Opcode    @test.TestsQ[i].secondoperand</h2>
+                    <div class="form-group col-md-6">
+                        <input type="text" value="" class="text-capitalize" />
+
+                    </div>
+
+
+                    break;
+
+                case "-":
+                    <h3>Subtract The Two Numbers</h3>
+                    <h2> @test.TestsQ[i].firstoperand     @test.TestsQ[i].Opcode    @test.TestsQ[i].secondoperand</h2>
+                    <div class="form-group col-md-6">
+                        <input type="text" value="" class="text-capitalize" />
+
+                    </div>
+
+
+                    break;
 
 
             }
 
+
         }
-
-
-
     }
+
 }
 
-
+<p><input type="submit" name="buttonSubmit" value="Submit" /></p>
