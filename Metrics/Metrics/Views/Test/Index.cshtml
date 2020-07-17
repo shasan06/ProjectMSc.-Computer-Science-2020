@@ -17,7 +17,7 @@ else
         <p>This is the test ID for this test: @test.Testid</p>;
 
 
-        int k = 4;
+        int k = 10;
         for (int i = 0; i < k; i++)
         {
             @switch (test.TestsQ[i].Opcode)
@@ -25,7 +25,7 @@ else
                 case "Count":
                     for (int j = 0; j < test.TestsQ[i].firstoperand; j++)
                     {
-                        <img src="~/images/image/@test.ImageName" />
+                        <img src="~/images/image/@test.ImageName[i]" width="80" height="80" />
 ;
 
                     }

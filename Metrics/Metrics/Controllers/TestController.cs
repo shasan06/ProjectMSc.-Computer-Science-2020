@@ -9,6 +9,7 @@ using Metrics.Data;
 using Metrics.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Web;
 
 namespace Metrics.Controllers
 {
@@ -49,33 +50,49 @@ namespace Metrics.Controllers
             };*/
             //add test to the tests-- is tests in the database dosent exist? but only a modal is there ? 
 
+            //Logic for generating the images
+            string[] ImageArray = {"image_1.jpg", "image_1of1.png", "image_1of10.png", "image_1of11.png", "image_1of2.png", "image_1of3.png", "image_1of4.png", "image_1of5.png",
+            "image_1of6.png", "image_1of7.png", "image_1of8.png", "image_1of9.png"};
+
+
             //Logic for retrieving the data for the initial assessment
             var test = new Test()
             {
-                ImageName = "image_1.jpg",
+                
+                //ImageName = "image_1.jpg"
+                ImageName=ImageArray,
                 //from questions database get the two questions from level 1
-                TestsQ = questions.Where(x => x.levelid == 1).Take(2).Concat(questions.Where(x => x.levelid == 2).Take(2)).ToList()
-
-
-                    //questions.Where(x => x.levelid == 1).Take(2).Concat(questions.Where(x => x.levelid == 2).Take(2)
-                    //.Concat(questions.Where(x => x.levelid == 3).Take(2).Concat(questions.Where(x => x.levelid == 4).Take(2).Concat(questions.Where(x => x.levelid == 5).Take(2)).
-
-
-
-
-
-
-
-
+                TestsQ = questions.Where(x => x.levelid == 1).Take(2).Concat(questions.Where(x => x.levelid == 2).Take(2)
+                .Concat(questions.Where(x => x.levelid == 3).Take(2).Concat(questions.Where(x => x.levelid == 4).Take(2)
+                .Concat(questions.Where(x => x.levelid == 5).Take(2)))))
+                .ToList()//this is working
             };
             tests.Add(test);
             return View(tests);
+
+
+
+
+
+            //questions.Where(x => x.levelid == 1).Take(2).Concat(questions.Where(x => x.levelid == 2).Take(2)
+            //.Concat(questions.Where(x => x.levelid == 3).Take(2).Concat(questions.Where(x => x.levelid == 4).Take(2).Concat(questions.Where(x => x.levelid == 5).Take(2)).
+
+            //I am using a dictionary to see the most efficient way to add the questions
+            //List<Dictionary<string, int> dict = new List<Dictionary<string, int>>();
+
+            //TestsQ = questions.Where(dict => dict.levelid == 1).Take(2).ToDictiona
+
+
+
+
+
+
 
         }
 
 
 
-        
+
     }
 
     //Test Factory

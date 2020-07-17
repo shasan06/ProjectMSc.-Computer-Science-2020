@@ -25,7 +25,7 @@ namespace Metrics.Models
 
         public List<Question> TestsA { get; set; }
 
-        public string ImageName { get; set; }
+        public string[] ImageName { get; set; }
 
         
     }
