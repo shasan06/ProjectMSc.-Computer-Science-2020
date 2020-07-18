@@ -26,9 +26,13 @@
 
                     }
                     <div class="form-group col-md-6">
-                        <input type="text" value="" class="text-capitalize" />
-                        <input type="submit" value="Next" class="btn-outline-dark"/>
-                       
+                        <form asp-action="QuestionAnswer">
+                            <input type="hidden" asp-for="TestsPQ.CorrectAnswer" />
+                            <input asp-for="TestsA" type="text" value="" class="form-control" />
+                            <input asp-for="TestsA" type="submit" value="Next" class="btn-outline-dark" />
+                            <span asp-validation-for="TestsA" class="text-danger"></span>
+                            @ViewData["Message"]
+                        </form> 
                     </div>
                     
                     break;
@@ -37,8 +41,14 @@
                     <h1>Compare The Largest Numbers</h1>
                     <h2> @Model.TestsPQ.firstoperand         @Model.TestsPQ.secondoperand</h2>
                     <div class="form-group col-md-6">
-                        <input type="text" value="" class="text-capitalize" />
-                        <input type="submit" value="Next" class="btn-outline-dark" />
+                        <form asp-action="QuestionAnswer">
+                            <input type="hidden" asp-for="TestsPQ.CorrectAnswer" />
+                            <input asp-for="TestsA" type="text" value="" class="form-control" />
+                            <input asp-for="TestsA" type="submit" value="Next" class="btn-outline-dark" />
+                            <span asp-validation-for="TestsA" class="text-danger"></span>
+                            @ViewData["Message"]
+                        </form>
+                       
                     </div>
 
 
@@ -48,8 +58,13 @@
                     <h1>Add The Two Numbers</h1>
                     <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
                     <div class="form-group col-md-6">
-                        <input type="text" value="" class="text-capitalize" />
-                        <input type="submit" value="Next" class="btn-outline-dark" />
+                        <form asp-action="QuestionAnswer">
+                            <input type="hidden" asp-for="TestsPQ" />
+                            <input asp-for="TestsA" type="text" value="" class="form-control" />
+                            <input asp-for="TestsA" type="submit" value="Next" class="btn-outline-dark" />
+                            <span asp-validation-for="TestsA" class="text-danger"></span>
+                            @ViewData["Message"]
+                        </form>
                     </div>
 
 
@@ -59,15 +74,20 @@
                     <h1>Subtract The Two Numbers</h1>
                     <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
                     <div class="form-group col-md-6">
-                        <input type="text" value="" class="text-capitalize" />
-                        <input type="submit" value="Next" class="btn-outline-dark" />
+                        <form asp-action="QuestionAnswer">
+                            <input type="hidden" asp-for="TestsPQ" />
+                            <input asp-for="TestsA" type="text" value="" class="form-control" />
+                            <input asp-for="TestsA" type="submit" value="Next" class="btn-outline-dark" />
+                            <span asp-validation-for="TestsA" class="text-danger"></span>
+                            @ViewData["Message"]
+                        </form>
                     </div>
 
 
                     break;
 
 
-            }
+}
 
 
  

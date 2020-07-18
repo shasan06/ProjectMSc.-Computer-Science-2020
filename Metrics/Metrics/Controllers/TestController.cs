@@ -23,7 +23,7 @@ namespace Metrics.Controllers
         }
 
         //Http GET
-       public IActionResult Index(int registrationId)
+        public IActionResult Index(int registrationId)
         {   // This responses variable stores the responses of the registered user only
             var responses = _context.TestPermanentTables
                                     .Where(x => x.Registrationid == registrationId)
@@ -33,7 +33,7 @@ namespace Metrics.Controllers
             var questions = _context.Questions.ToList();
 
             //tests is a new object of type List<Test>
-            
+
 
             //now loop through the reponses
             //foreach (var response in responses)
@@ -59,7 +59,7 @@ namespace Metrics.Controllers
             //Logic for retrieving the data for the initial assessment
             //var test = new Test()
             var tests = new Test();
-           // var rand = new Random();
+            // var rand = new Random();
 
             //ImageName = "image_1.jpg"
             tests.ImageName = ImageArray;
@@ -69,13 +69,13 @@ namespace Metrics.Controllers
                .Concat(questions.Where(x => x.levelid == 5).Take(2)))))
                .ToList();//this is working
 
-            for(int i=0; i<10; i++)
+            for (int i = 0; i < 10; i++)
 
             {
                 tests.TestsPQ = tests.TestsQ[i];
             }
             //get any first question from the TestsQ into another variable named TestsPQ   
-           
+
             //tests.Add(test);
             return View(tests);
 
@@ -101,11 +101,46 @@ namespace Metrics.Controllers
 
         //Http POST
 
+        public async Task<IActionResult> QuestionAnswer([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score","TestsQ","TestsPQ", "TestsA","ImageName")] Test test)
+        {
+            if (ModelState.IsValid)
+            {
+
+                //var t = new Test();
+
+                //users answer is stored in TestsA property
+                //Console.WriteLine($"{test.TestsPQ.CorrectAnswer}");
+
+                //Now check if the user answer is correct
+                
+                if (test.TestsPQ.CorrectAnswer.Equals(test.TestsA ))
+                {
+                    //adding the score in the test
+                    test.Score += 10;
+                    ViewData["Message"] = "~images/tick.png";
+                    return View("Index");
+                }
+                
+                //if the user answer in incorrect
+                else
+                {
+                    test.Score += 0;
+                    ViewData["Message"] = "~images/cross.png";
+                    return View("Index");
+                }
+                
 
 
-
-
+            }
+            return RedirectToAction("Index");
+        }
     }
+
+}
+
+
+
+
 
     //Test Factory
     //THERE ARE SO MANY THINGS WRONG WITH THE CODE BELOW, commenting it out
@@ -162,5 +197,5 @@ namespace Metrics.Controllers
     //    }
     //    return View(testVM);
     //}
-}
+
 
