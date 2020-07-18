@@ -1,4 +1,4 @@
-﻿@model List<Test>
+﻿@model Test
 @{
     ViewData["Title"] = "Test";
     Layout = "_Layout";
@@ -8,75 +8,59 @@
     <a asp-action="Test">Test Started</a>
 </p>
 
-
-
-@if (!Model.Any())
-{
-    <p>There are no tests associated with the user</p>;
-    @*<img src="~/images/image/image_1.jpg" />*@
-
-}
-else
-{
-    var rand = new Random();
-    @foreach (var test in Model)
-    {
-        <!--This is the test ID for this test:-->// @test.Testid;
-
-
-        int k = 10;
-        int l = 0;
-        l = rand.Next(0, 11);
-        for (int i = 0; i < k; i++)
-        {
-
-            @switch (test.TestsQ[i].Opcode)
+@switch (Model.TestsPQ.Opcode)
             {
-                case "Count":
 
-                    <h3>Count</h3>
-                    for (int j = 0; j < test.TestsQ[i].firstoperand; j++)
+
+
+                case "Count":
+                    var rand = new Random();
+                    var l = rand.Next(0, 11);
+
+                    <h1>Count</h1>
+                    for (int j = 0; j < Model.TestsPQ.firstoperand; j++)
                     {
-                        <img src="~/images/image/@test.ImageName[(l+i)%12]" width="80" height="80" />
-                        ;
+                        <img src="~/images/image/@Model.ImageName[(l)%12]" width="80" height="80" />;
+                        
 
 
                     }
                     <div class="form-group col-md-6">
                         <input type="text" value="" class="text-capitalize" />
-                        
+                        <input type="submit" value="Next" class="btn-outline-dark"/>
+                       
                     </div>
-
+                    
                     break;
 
                 case "Compare":
-                    <h3>Compare The Largest Numbers</h3>
-                    <h2> @test.TestsQ[i].firstoperand         @test.TestsQ[i].secondoperand</h2>
+                    <h1>Compare The Largest Numbers</h1>
+                    <h2> @Model.TestsPQ.firstoperand         @Model.TestsPQ.secondoperand</h2>
                     <div class="form-group col-md-6">
                         <input type="text" value="" class="text-capitalize" />
-
+                        <input type="submit" value="Next" class="btn-outline-dark" />
                     </div>
 
 
                     break;
 
                 case "+":
-                    <h3>Add The Two Numbers</h3>
-                    <h2> @test.TestsQ[i].firstoperand     @test.TestsQ[i].Opcode    @test.TestsQ[i].secondoperand</h2>
+                    <h1>Add The Two Numbers</h1>
+                    <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
                     <div class="form-group col-md-6">
                         <input type="text" value="" class="text-capitalize" />
-
+                        <input type="submit" value="Next" class="btn-outline-dark" />
                     </div>
 
 
                     break;
 
                 case "-":
-                    <h3>Subtract The Two Numbers</h3>
-                    <h2> @test.TestsQ[i].firstoperand     @test.TestsQ[i].Opcode    @test.TestsQ[i].secondoperand</h2>
+                    <h1>Subtract The Two Numbers</h1>
+                    <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
                     <div class="form-group col-md-6">
                         <input type="text" value="" class="text-capitalize" />
-
+                        <input type="submit" value="Next" class="btn-outline-dark" />
                     </div>
 
 
@@ -86,9 +70,6 @@ else
             }
 
 
-        }
-    }
+ 
 
-}
 
-<p> <input type="submit" value="Submit" class="btn btn-primary btn-block" /></p>

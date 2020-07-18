@@ -33,7 +33,7 @@ namespace Metrics.Controllers
             var questions = _context.Questions.ToList();
 
             //tests is a new object of type List<Test>
-            var tests = new List<Test>();
+            
 
             //now loop through the reponses
             //foreach (var response in responses)
@@ -57,18 +57,26 @@ namespace Metrics.Controllers
 
 
             //Logic for retrieving the data for the initial assessment
-            var test = new Test()
+            //var test = new Test()
+            var tests = new Test();
+           // var rand = new Random();
+
+            //ImageName = "image_1.jpg"
+            tests.ImageName = ImageArray;
+            //store all the 10 questions in the variable TestsQ which is of type list
+            tests.TestsQ = questions.Where(x => x.levelid == 1).Take(2).Concat(questions.Where(x => x.levelid == 2).Take(2)
+               .Concat(questions.Where(x => x.levelid == 3).Take(2).Concat(questions.Where(x => x.levelid == 4).Take(2)
+               .Concat(questions.Where(x => x.levelid == 5).Take(2)))))
+               .ToList();//this is working
+
+            for(int i=0; i<10; i++)
+
             {
-                
-                //ImageName = "image_1.jpg"
-                ImageName=ImageArray,
-                //from questions database get the two questions from level 1
-                TestsQ = questions.Where(x => x.levelid == 1).Take(2).Concat(questions.Where(x => x.levelid == 2).Take(2)
-                .Concat(questions.Where(x => x.levelid == 3).Take(2).Concat(questions.Where(x => x.levelid == 4).Take(2)
-                .Concat(questions.Where(x => x.levelid == 5).Take(2)))))
-                .ToList()//this is working
-            };
-            tests.Add(test);
+                tests.TestsPQ = tests.TestsQ[i];
+            }
+            //get any first question from the TestsQ into another variable named TestsPQ   
+           
+            //tests.Add(test);
             return View(tests);
 
 
