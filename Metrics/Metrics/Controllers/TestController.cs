@@ -22,6 +22,7 @@ namespace Metrics.Controllers
             _context = context;
         }
 
+        //Http GET
        public IActionResult Index(int registrationId)
         {   // This responses variable stores the responses of the registered user only
             var responses = _context.TestPermanentTables
@@ -89,6 +90,9 @@ namespace Metrics.Controllers
 
 
         }
+
+        //Http POST
+
 
 
 

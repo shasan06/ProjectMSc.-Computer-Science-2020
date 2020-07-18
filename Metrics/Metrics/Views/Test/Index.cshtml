@@ -4,6 +4,12 @@
     Layout = "_Layout";
 }
 
+<p>
+    <a asp-action="Test">Test Started</a>
+</p>
+
+
+
 @if (!Model.Any())
 {
     <p>There are no tests associated with the user</p>;
@@ -12,14 +18,18 @@
 }
 else
 {
+    var rand = new Random();
     @foreach (var test in Model)
     {
         <!--This is the test ID for this test:-->// @test.Testid;
 
 
         int k = 10;
+        int l = 0;
+        l = rand.Next(0, 11);
         for (int i = 0; i < k; i++)
         {
+
             @switch (test.TestsQ[i].Opcode)
             {
                 case "Count":
@@ -27,14 +37,14 @@ else
                     <h3>Count</h3>
                     for (int j = 0; j < test.TestsQ[i].firstoperand; j++)
                     {
-                        <img src="~/images/image/@test.ImageName[i]" width="80" height="80" />
+                        <img src="~/images/image/@test.ImageName[(l+i)%12]" width="80" height="80" />
                         ;
 
 
                     }
                     <div class="form-group col-md-6">
                         <input type="text" value="" class="text-capitalize" />
-
+                        
                     </div>
 
                     break;
@@ -81,4 +91,4 @@ else
 
 }
 
-<p><input type="submit" name="buttonSubmit" value="Submit" /></p>
+<p> <input type="submit" value="Submit" class="btn btn-primary btn-block" /></p>
