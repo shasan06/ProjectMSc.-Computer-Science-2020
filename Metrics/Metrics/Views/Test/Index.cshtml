@@ -8,6 +8,25 @@
     <a asp-action="Test">Test Started</a>
 </p>
 
+<script type="text/javascript" language="javascript">
+    //function checkanwer() {
+    //    var ans = document.getelementbyid("ans").value;
+    //    var cans = document.getelementbyid("correctans").value;
+    //    if (ans != cans) {
+    //        document.getelementbyid("msg").value = "incorrect";
+    //        document.getelementbyid("imgans").src = "/images/image/cross.png";
+    //        document.getelementbyid("imgans").style = "display: true";
+
+    //        return false;
+    //    }
+    //    else{
+    //        document.getelementbyid("msg").value = "correct";
+    //        document.getelementbyid("imgans").src = "/images/image/tick.png";
+    //        return true;
+    //    }
+
+    //}
+</script>
 
 
 
@@ -30,11 +49,14 @@
         }
         <div class="form-group col-md-6">
             <form asp-action="Index">
-                <input asp-for="TestsA" type="text" value="" class="form-control" />
-                <input asp-for="TestsA" type="submit" value="Submit"  name="save" class="btn-outline-dark" />
-
+                <input asp-for="TestsA" type="text" value="" class="form-control" id="ans" />
+                <img src =" @ViewData["Image"]" /> 
+                <input asp-for="TestsA" type="submit" value="Submit" id="save" class="btn-outline-dark"/>
+                <input asp-for="TestsA" type="button" value="Next"  class="btn-outline-dark" id="next" style= "display: none"/>
+                <input asp-for="TestsPQ.CorrectAnswer" id="correctans" type="hidden" />
             </form>
-            @ViewData["Message"]
+            
+           
         </div>
         <div class="form-group col-md-6">
             <form asp-action="Update">

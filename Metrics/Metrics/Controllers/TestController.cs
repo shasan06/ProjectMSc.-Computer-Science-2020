@@ -24,7 +24,7 @@ namespace Metrics.Controllers
 
         //Http GET
        
-        public  IActionResult Index([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score","TestsQ","TestsPQ","TestsA","ImageName")]Test tests)
+        public  IActionResult Index([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score","TestsQ","TestsPQ","TestsA","ImageName")]Test tests, string save)
         {
            
 
@@ -52,6 +52,11 @@ namespace Metrics.Controllers
 
             var rand = new Random();
             int l = rand.Next(0, 11);
+            if (tests.ScoreQ == null)
+            {
+                tests.ScoreQ = new List<int>();
+                
+            }
 
             for (int i = 0; i < 10; i++)
 
@@ -60,11 +65,17 @@ namespace Metrics.Controllers
                 tests.TestsPQ = tests.TestsQ[i];
                 ViewData["Message"] = "";
 
+                if (tests.ScoreQ.Count()<=i)
+                {
+                    tests.ScoreQ.Add(0);
+                }
+                
+                
                 if (tests.TestsPQ.CorrectAnswer.Equals(tests.TestsA))
                 {
                     tests.Score += 10;
                     tests.ScoreQ[i] = 10;
-                    ViewData["Message"] = "Correct";
+                    ViewData["Image"] = "/images/image/tick.png";
                     //return View(tests);
                     //adding the score in the test
 
@@ -76,8 +87,8 @@ namespace Metrics.Controllers
                 else
                 {
                     tests.Score += 0;
-                    tests.ScoreQ[i] = 0;
-                    ViewData["Message"] = "Incorrect";
+                    tests.ScoreQ[i]= 0;
+                    ViewData["Image"] = "/images/image/cross.png";
                     //return View(tests);
 
 
