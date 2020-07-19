@@ -17,11 +17,15 @@ namespace Metrics.Models
 
         public int TestLevel { get; set; }
 
+        public int RNDM { get; set; }
+
         public DateTime TimeStamp { get; set; }
 
         public double Score { get; set; }
 
         public List<Question> TestsQ { get; set; }
+
+        public List<int> ScoreQ { get; set; }
 
         public Question TestsPQ { get; set; }
         public string TestsA { get; set; }

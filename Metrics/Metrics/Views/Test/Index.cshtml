@@ -8,88 +8,126 @@
     <a asp-action="Test">Test Started</a>
 </p>
 
+
+
+
 @switch (Model.TestsPQ.Opcode)
-            {
+{
 
 
 
-                case "Count":
-                    var rand = new Random();
-                    var l = rand.Next(0, 11);
+    case "Count":
+        
 
-                    <h1>Count</h1>
-                    for (int j = 0; j < Model.TestsPQ.firstoperand; j++)
-                    {
-                        <img src="~/images/image/@Model.ImageName[(l)%12]" width="80" height="80" />;
-                        
-
-
-                    }
-                    <div class="form-group col-md-6">
-                        <form asp-action="QuestionAnswer">
-                            <input type="hidden" asp-for="TestsPQ.CorrectAnswer" />
-                            <input asp-for="TestsA" type="text" value="" class="form-control" />
-                            <input asp-for="TestsA" type="submit" value="Next" class="btn-outline-dark" />
-                            <span asp-validation-for="TestsA" class="text-danger"></span>
-                            @ViewData["Message"]
-                        </form> 
-                    </div>
-                    
-                    break;
-
-                case "Compare":
-                    <h1>Compare The Largest Numbers</h1>
-                    <h2> @Model.TestsPQ.firstoperand         @Model.TestsPQ.secondoperand</h2>
-                    <div class="form-group col-md-6">
-                        <form asp-action="QuestionAnswer">
-                            <input type="hidden" asp-for="TestsPQ.CorrectAnswer" />
-                            <input asp-for="TestsA" type="text" value="" class="form-control" />
-                            <input asp-for="TestsA" type="submit" value="Next" class="btn-outline-dark" />
-                            <span asp-validation-for="TestsA" class="text-danger"></span>
-                            @ViewData["Message"]
-                        </form>
-                       
-                    </div>
+        <h1>Count</h1>
+        for (int j = 0; j < Model.TestsPQ.firstoperand; j++)
+        {
+            <img src="~/images/image/@Model.ImageName[Model.RNDM]" width="80" height="80" />
+            ;
 
 
-                    break;
 
-                case "+":
-                    <h1>Add The Two Numbers</h1>
-                    <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
-                    <div class="form-group col-md-6">
-                        <form asp-action="QuestionAnswer">
-                            <input type="hidden" asp-for="TestsPQ" />
-                            <input asp-for="TestsA" type="text" value="" class="form-control" />
-                            <input asp-for="TestsA" type="submit" value="Next" class="btn-outline-dark" />
-                            <span asp-validation-for="TestsA" class="text-danger"></span>
-                            @ViewData["Message"]
-                        </form>
-                    </div>
+        }
+        <div class="form-group col-md-6">
+            <form asp-action="Index">
+                <input asp-for="TestsA" type="text" value="" class="form-control" />
+                <input asp-for="TestsA" type="submit" value="Submit"  name="save" class="btn-outline-dark" />
+
+            </form>
+            @ViewData["Message"]
+        </div>
+        <div class="form-group col-md-6">
+            <form asp-action="Update">
+                <input type="hidden" asp-for="Testid" />
+                <input type="hidden" asp-for="Registrationid" />
+                <input type="hidden" asp-for="TestLevel" />
+                <input type="hidden" asp-for="TimeStamp" />
+                <input type="hidden" asp-for="Score" />
+            </form>
+
+        </div>
+
+        break;
+
+    case "Compare":
+        <h1>Compare The Largest Numbers</h1>
+        <h2> @Model.TestsPQ.firstoperand         @Model.TestsPQ.secondoperand</h2>
+        <div class="form-group col-md-6">
+            <form asp-action="Index">
+                <input asp-for="TestsA" type="text" value="" class="form-control" />
+                <input asp-for="TestsA" type="submit" value="Submit" name="save" class="btn-outline-dark" />
+
+            </form>
+            @ViewData["Message"]
+        </div>
+        <div class="form-group col-md-6">
+            <form asp-action="Update">
+                <input type="hidden" asp-for="Testid" />
+                <input type="hidden" asp-for="Registrationid" />
+                <input type="hidden" asp-for="TestLevel" />
+                <input type="hidden" asp-for="TimeStamp" />
+                <input type="hidden" asp-for="Score" />
+            </form>
+
+        </div>
 
 
-                    break;
+        break;
 
-                case "-":
-                    <h1>Subtract The Two Numbers</h1>
-                    <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
-                    <div class="form-group col-md-6">
-                        <form asp-action="QuestionAnswer">
-                            <input type="hidden" asp-for="TestsPQ" />
-                            <input asp-for="TestsA" type="text" value="" class="form-control" />
-                            <input asp-for="TestsA" type="submit" value="Next" class="btn-outline-dark" />
-                            <span asp-validation-for="TestsA" class="text-danger"></span>
-                            @ViewData["Message"]
-                        </form>
-                    </div>
+    case "+":
+        <h1>Add The Two Numbers</h1>
+        <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
+        <div class="form-group col-md-6">
+            <form asp-action="Index">
+                <input asp-for="TestsA" type="text" value="" class="form-control" />
+                <input asp-for="TestsA" type="submit" value="Submit" name="save" class="btn-outline-dark" />
+
+            </form>
+            @ViewData["Message"]
+        </div>
+        <div class="form-group col-md-6">
+            <form asp-action="Update">
+                <input type="hidden" asp-for="Testid" />
+                <input type="hidden" asp-for="Registrationid" />
+                <input type="hidden" asp-for="TestLevel" />
+                <input type="hidden" asp-for="TimeStamp" />
+                <input type="hidden" asp-for="Score" />
+            </form>
+
+        </div>
 
 
-                    break;
+        break;
+
+    case "-":
+        <h1>Subtract The Two Numbers</h1>
+        <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
+        <div class="form-group col-md-6">
+            <form asp-action="Index">
+                <input asp-for="TestsA" type="text" value="" class="form-control" />
+                <input asp-for="TestsA" type="submit" value="Submit" name="save" class="btn-outline-dark" />
+
+            </form>
+            @ViewData["Message"]
+        </div>
+        <div class="form-group col-md-6">
+            <form asp-action="Update">
+                <input type="hidden" asp-for="Testid" />
+                <input type="hidden" asp-for="Registrationid" />
+                <input type="hidden" asp-for="TestLevel" />
+                <input type="hidden" asp-for="TimeStamp" />
+                <input type="hidden" asp-for="Score" />
+            </form>
+
+        </div>
+
+
+        break;
 
 
 }
 
 
- 
+
 
 

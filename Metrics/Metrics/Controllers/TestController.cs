@@ -23,33 +23,14 @@ namespace Metrics.Controllers
         }
 
         //Http GET
-        public IActionResult Index(int registrationId)
-        {   // This responses variable stores the responses of the registered user only
-            var responses = _context.TestPermanentTables
-                                    .Where(x => x.Registrationid == registrationId)
-                                    .ToList();
+       
+        public  IActionResult Index([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score","TestsQ","TestsPQ","TestsA","ImageName")]Test tests)
+        {
+           
+
 
             //This questions variable stores all the list of questions 
             var questions = _context.Questions.ToList();
-
-            //tests is a new object of type List<Test>
-
-
-            //now loop through the reponses
-            //foreach (var response in responses)
-            //{
-            //get the questions from the database whose id matches with???? bring it to List and store it in testQuestions variable
-
-
-            //Now create a new Test object and store it in test variable
-            /*var test = new Test()
-            {
-                TestLevel = response.TestLevel,
-                Testid = response.Testid,
-                TestsQ = testQuestions,
-                ImageName = "image_1.jpg"
-            };*/
-            //add test to the tests-- is tests in the database dosent exist? but only a modal is there ? 
 
             //Logic for generating the images
             string[] ImageArray = {"image_1.jpg", "image_1of1.png", "image_1of10.png", "image_1of11.png", "image_1of2.png", "image_1of3.png", "image_1of4.png", "image_1of5.png",
@@ -58,7 +39,7 @@ namespace Metrics.Controllers
 
             //Logic for retrieving the data for the initial assessment
             //var test = new Test()
-            var tests = new Test();
+            //var tests = new Test();
             // var rand = new Random();
 
             //ImageName = "image_1.jpg"
@@ -69,73 +50,69 @@ namespace Metrics.Controllers
                .Concat(questions.Where(x => x.levelid == 5).Take(2)))))
                .ToList();//this is working
 
+            var rand = new Random();
+            int l = rand.Next(0, 11);
+
             for (int i = 0; i < 10; i++)
 
             {
+                tests.RNDM = (l + i)%12;
                 tests.TestsPQ = tests.TestsQ[i];
+                ViewData["Message"] = "";
+
+                if (tests.TestsPQ.CorrectAnswer.Equals(tests.TestsA))
+                {
+                    tests.Score += 10;
+                    tests.ScoreQ[i] = 10;
+                    ViewData["Message"] = "Correct";
+                    //return View(tests);
+                    //adding the score in the test
+
+
+
+                }
+
+                //if the user answer in incorrect
+                else
+                {
+                    tests.Score += 0;
+                    tests.ScoreQ[i] = 0;
+                    ViewData["Message"] = "Incorrect";
+                    //return View(tests);
+
+
+
+                }
+                return View(tests);
             }
             //get any first question from the TestsQ into another variable named TestsPQ   
 
             //tests.Add(test);
             return View(tests);
 
+}
 
-
-
-
-            //questions.Where(x => x.levelid == 1).Take(2).Concat(questions.Where(x => x.levelid == 2).Take(2)
-            //.Concat(questions.Where(x => x.levelid == 3).Take(2).Concat(questions.Where(x => x.levelid == 4).Take(2).Concat(questions.Where(x => x.levelid == 5).Take(2)).
-
-            //I am using a dictionary to see the most efficient way to add the questions
-            //List<Dictionary<string, int> dict = new List<Dictionary<string, int>>();
-
-            //TestsQ = questions.Where(dict => dict.levelid == 1).Take(2).ToDictiona
-
-
-
-
-
-
-
-        }
 
         //Http POST
-
-        public async Task<IActionResult> QuestionAnswer([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score","TestsQ","TestsPQ", "TestsA","ImageName")] Test test)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update ([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score")] Test test)
         {
-            if (ModelState.IsValid)
+            var t = new TestPermanentTable
             {
-
-                //var t = new Test();
-
-                //users answer is stored in TestsA property
-                //Console.WriteLine($"{test.TestsPQ.CorrectAnswer}");
-
-                //Now check if the user answer is correct
-                
-                if (test.TestsPQ.CorrectAnswer.Equals(test.TestsA ))
-                {
-                    ViewData["Message"] = "Correct";
-                    return RedirectToAction(nameof(Index));
-                    //adding the score in the test
-                    //test.Score += 10;
-
-
-                }
-                
-                //if the user answer in incorrect
-                else
-                {
-                    ViewData["Message"] = "Incorrect";
-                    return RedirectToAction(nameof(Index));
-                    //test.Score += 0;
-
-
-                }
+                TestPermanentTableid = test.Testid,
+                Registrationid = test.Registrationid,
+                TestLevel = test.TestLevel,
+                TimeStamp = test.TimeStamp,
+                Score = test.Score
                 
 
+            };
 
-            }
+            _context.TestPermanentTables.Add(t);
+            await _context.SaveChangesAsync();
+            ModelState.Clear();
+            
             return View(test);
         }
     }
@@ -146,60 +123,5 @@ namespace Metrics.Controllers
 
 
 
-    //Test Factory
-    //THERE ARE SO MANY THINGS WRONG WITH THE CODE BELOW, commenting it out
-    //public void TestFactory(int level)
-    //{
-    //    switch (level)
-    //    {
-    //            case 0:
-
-    //                //selecting only two questions from level 1
-    //                for (int i = 0; i < 2; i++) {
-    //                    var questions = from q in _context.Questions.
-    //                                    OrderBy(q => q.levelid.ToString("1"))
-    //                                    select q;
-    //                }
-    //                //again selecting only two questions from level 2
-    //                for (int i = 0; i < 2; i++)
-    //                {
-    //                    var questions = from q in _context.Questions.
-    //                                    OrderBy(q => q.levelid.ToString("2"))
-    //                                    select q;
-    //                }
-
-    //                //again selecting only two questions from level 3
-    //                for (int i = 0; i < 2; i++)
-    //                {
-    //                    var questions = from q in _context.Questions.
-    //                                    OrderBy(q => q.levelid.ToString("3"))
-    //                                    select q;
-    //                }
-
-    //                //again selecting only two questions from level 4
-    //                for (int i = 0; i < 2; i++)
-    //                {
-    //                    var questions = from q in _context.Questions.
-    //                                    OrderBy(q => q.levelid.ToString("4"))
-    //                                    select q;
-    //                }
-
-    //                //again selecting only two questions from level 4
-    //                for (int i = 0; i < 2; i++)
-    //                {
-    //                    var questions = from q in _context.Questions.
-    //                                    OrderBy(q => q.levelid.ToString("5"))
-    //                                    select q;
-    //                }
-
-    //                // save the questions into the test table
-    //                var testVM = new Test
-    //                {
-    //                    TestsQ = await questions.ToList();
-    //                };
-    //                break;
-    //    }
-    //    return View(testVM);
-    //}
 
 
