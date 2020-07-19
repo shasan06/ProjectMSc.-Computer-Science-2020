@@ -115,24 +115,28 @@ namespace Metrics.Controllers
                 
                 if (test.TestsPQ.CorrectAnswer.Equals(test.TestsA ))
                 {
+                    ViewData["Message"] = "Correct";
+                    return RedirectToAction(nameof(Index));
                     //adding the score in the test
-                    test.Score += 10;
-                    ViewData["Message"] = "~images/tick.png";
-                    return View("Index");
+                    //test.Score += 10;
+
+
                 }
                 
                 //if the user answer in incorrect
                 else
                 {
-                    test.Score += 0;
-                    ViewData["Message"] = "~images/cross.png";
-                    return View("Index");
+                    ViewData["Message"] = "Incorrect";
+                    return RedirectToAction(nameof(Index));
+                    //test.Score += 0;
+
+
                 }
                 
 
 
             }
-            return RedirectToAction("Index");
+            return View(test);
         }
     }
 
