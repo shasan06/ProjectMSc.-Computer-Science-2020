@@ -30,13 +30,14 @@
 
 
 
+
 @switch (Model.TestsPQ.Opcode)
 {
 
 
 
     case "Count":
-        
+
 
         <h1>Count</h1>
         for (int j = 0; j < Model.TestsPQ.firstoperand; j++)
@@ -49,11 +50,16 @@
         }
         <div class="form-group col-md-6">
             <form asp-action="Index">
-                <input asp-for="TestsA" type="text" value="" class="form-control" id="ans" />
-                <img src =" @ViewData["Image"]" /> 
-                <input asp-for="TestsA" type="submit" value="Submit" id="save" class="btn-outline-dark"/>
-                <input asp-for="TestsA" type="button" value="Next"  class="btn-outline-dark" id="next" style= "display: none"/>
-                <input asp-for="TestsPQ.CorrectAnswer" id="correctans" type="hidden" />
+                <input asp-for="TestsA" type="text" value="" class="form-control" />
+                @ViewData["Image"]"
+                <input asp-for="TestsA" type="submit" value="Submit" id="save" class="btn-outline-dark" />
+                <input asp-for="TestsA" type="button" value="Next" class="btn-outline-dark" id="next" style="display: none" />
+                <input asp-for="QuestionNO" type="hidden" />
+                <input type="hidden" asp-for="Testid" />
+                <input type="hidden" asp-for="Registrationid" />
+                <input type="hidden" asp-for="TestLevel" />
+                <input type="hidden" asp-for="TimeStamp" />
+                <input type="hidden" asp-for="Score" />
             </form>
             
            
@@ -72,15 +78,24 @@
         break;
 
     case "Compare":
+
+
         <h1>Compare The Largest Numbers</h1>
         <h2> @Model.TestsPQ.firstoperand         @Model.TestsPQ.secondoperand</h2>
         <div class="form-group col-md-6">
             <form asp-action="Index">
                 <input asp-for="TestsA" type="text" value="" class="form-control" />
+                @ViewData["Image"]
                 <input asp-for="TestsA" type="submit" value="Submit" name="save" class="btn-outline-dark" />
-
+                <input asp-for="TestsA" type="button" value="Next" class="btn-outline-dark" id="next" style="display: none" />
+                <input asp-for="QuestionNO" type="hidden" />
+                <input type="hidden" asp-for="Testid" />
+                <input type="hidden" asp-for="Registrationid" />
+                <input type="hidden" asp-for="TestLevel" />
+                <input type="hidden" asp-for="TimeStamp" />
+                <input type="hidden" asp-for="Score" />
             </form>
-            @ViewData["Message"]
+            
         </div>
         <div class="form-group col-md-6">
             <form asp-action="Update">
@@ -97,15 +112,24 @@
         break;
 
     case "+":
+
+
         <h1>Add The Two Numbers</h1>
         <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
         <div class="form-group col-md-6">
             <form asp-action="Index">
                 <input asp-for="TestsA" type="text" value="" class="form-control" />
+                @ViewData["Image"]
                 <input asp-for="TestsA" type="submit" value="Submit" name="save" class="btn-outline-dark" />
-
+                <input asp-for="TestsA" type="button" value="Next" class="btn-outline-dark" id="next" style="display: none" />
+                <input asp-for="QuestionNO" type="hidden" />
+                <input type="hidden" asp-for="Testid" />
+                <input type="hidden" asp-for="Registrationid" />
+                <input type="hidden" asp-for="TestLevel" />
+                <input type="hidden" asp-for="TimeStamp" />
+                <input type="hidden" asp-for="Score" />
             </form>
-            @ViewData["Message"]
+           
         </div>
         <div class="form-group col-md-6">
             <form asp-action="Update">
@@ -122,15 +146,24 @@
         break;
 
     case "-":
+
+
         <h1>Subtract The Two Numbers</h1>
         <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
         <div class="form-group col-md-6">
             <form asp-action="Index">
                 <input asp-for="TestsA" type="text" value="" class="form-control" />
+                @ViewData["Image"]
                 <input asp-for="TestsA" type="submit" value="Submit" name="save" class="btn-outline-dark" />
-
+                <input asp-for="TestsA" type="button" value="Next" class="btn-outline-dark" id="next" style="display: none" />
+                <input asp-for="QuestionNO" type="hidden" />
+                <input type="hidden" asp-for="Testid" />
+                <input type="hidden" asp-for="Registrationid" />
+                <input type="hidden" asp-for="TestLevel" />
+                <input type="hidden" asp-for="TimeStamp" />
+                <input type="hidden" asp-for="Score" />
             </form>
-            @ViewData["Message"]
+            
         </div>
         <div class="form-group col-md-6">
             <form asp-action="Update">
@@ -148,7 +181,6 @@
 
 
 }
-
 
 
 

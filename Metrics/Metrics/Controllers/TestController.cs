@@ -24,7 +24,7 @@ namespace Metrics.Controllers
 
         //Http GET
        
-        public  IActionResult Index([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score","TestsQ","TestsPQ","TestsA","ImageName")]Test tests, string save)
+        public  IActionResult Index([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score","TestsQ","TestsPQ","TestsA","ImageName")]Test tests)
         {
            
 
@@ -58,12 +58,15 @@ namespace Metrics.Controllers
                 
             }
 
+            
+
             for (int i = 0; i < 10; i++)
 
             {
                 tests.RNDM = (l + i)%12;
                 tests.TestsPQ = tests.TestsQ[i];
-                ViewData["Message"] = "";
+                tests.QuestionNO = i;
+                
 
                 if (tests.ScoreQ.Count()<=i)
                 {
@@ -75,9 +78,8 @@ namespace Metrics.Controllers
                 {
                     tests.Score += 10;
                     tests.ScoreQ[i] = 10;
-                    ViewData["Image"] = "/images/image/tick.png";
-                    //return View(tests);
-                    //adding the score in the test
+                    ViewData["Image"] = "~/images/image/tick.png";
+                    
 
 
 
@@ -88,7 +90,7 @@ namespace Metrics.Controllers
                 {
                     tests.Score += 0;
                     tests.ScoreQ[i]= 0;
-                    ViewData["Image"] = "/images/image/cross.png";
+                    ViewData["Image"] = "~/images/image/cross.png";
                     //return View(tests);
 
 
@@ -102,13 +104,40 @@ namespace Metrics.Controllers
             return View(tests);
 
 }
+        
+        /*public ActionResult PostAnswer(Test useranswer)
+        {
+            var t = new Test();
+            bool checkedanswer = t.TestsPQ.CorrectAnswer.Equals(useranswer.TestsA);
 
+            if (checkedanswer == null)
+            {
+                ViewData["Message"] = "Please type the answer";
+                return RedirectToAction("Index");
+            }
+            else if (checkedanswer==true)
+            {
+                t.Score += 10;
+                ViewData["Image"] = "/images/image/tick.png";
+            }
+            else
+            {
+                t.Score += 0;
+                ViewData["Image"] = "/images/image/cross.png";
+            }
+            return View(us);
+        }
+        */
 
         //Http POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update ([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score")] Test test)
         {
+
+
+
+
             var t = new TestPermanentTable
             {
                 TestPermanentTableid = test.Testid,
