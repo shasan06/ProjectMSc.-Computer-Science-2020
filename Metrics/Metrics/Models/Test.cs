@@ -33,7 +33,7 @@ namespace Metrics.Models
         //so I am adding a question number property to Test and sending that to the view in a hidden field so the 
         //user doesn't see it.
         //When the view sends the question back to the controller, the controller knows what question was just done.
-        public int QuestionNO { get; set; }
+        public Question QuestionNO { get; set; }
         public string TestsA { get; set; }
 
         public string[] ImageName { get; set; }

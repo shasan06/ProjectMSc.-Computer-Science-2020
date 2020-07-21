@@ -23,10 +23,10 @@ namespace Metrics.Controllers
         }
 
         //Http GET
-       
-        public  IActionResult Index([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score","TestsQ","TestsPQ","TestsA","ImageName")]Test tests)
+
+        public IActionResult Index([Bind("Testid", "Registrationid", "TestLevel", "TimeStamp", "Score", "TestsQ", "TestsPQ", "TestsA", "ImageName")] Test tests)
         {
-           
+
 
 
             //This questions variable stores all the list of questions 
@@ -50,23 +50,28 @@ namespace Metrics.Controllers
                .Concat(questions.Where(x => x.levelid == 5).Take(2)))))
                .ToList();//this is working
 
+
+
             var rand = new Random();
             int l = rand.Next(0, 11);
             if (tests.ScoreQ == null)
             {
                 tests.ScoreQ = new List<int>();
-                
+
             }
 
-            
 
-            for (int i = 0; i < 10; i++)
+
+            for (int i = 4; i < 10; i++)
 
             {
-                tests.RNDM = (l + i)%12;
-                tests.TestsPQ = tests.TestsQ[i];
-                tests.QuestionNO = i;
-                
+                tests.RNDM = (l + i) % 12;
+
+
+                //tests.TestsPQ = tests.TestsQ[i];
+                tests.QuestionNO = tests.TestsQ[i];
+                //qno= tests.QuestionNO;
+                /***
 
                 if (tests.ScoreQ.Count()<=i)
                 {
@@ -96,6 +101,7 @@ namespace Metrics.Controllers
 
 
                 }
+                ***/
                 return View(tests);
             }
             //get any first question from the TestsQ into another variable named TestsPQ   
@@ -103,8 +109,7 @@ namespace Metrics.Controllers
             //tests.Add(test);
             return View(tests);
 
-}
-        
+        }        
         /*public ActionResult PostAnswer(Test useranswer)
         {
             var t = new Test();

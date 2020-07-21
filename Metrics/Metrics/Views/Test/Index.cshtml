@@ -30,8 +30,7 @@
 
 
 
-
-@switch (Model.TestsPQ.Opcode)
+@switch (Model.QuestionNO.Opcode )
 {
 
 
@@ -40,7 +39,7 @@
 
 
         <h1>Count</h1>
-        for (int j = 0; j < Model.TestsPQ.firstoperand; j++)
+        for (int j = 0; j < Model.QuestionNO.firstoperand; j++)
         {
             <img src="~/images/image/@Model.ImageName[Model.RNDM]" width="80" height="80" />
             ;
@@ -81,7 +80,7 @@
 
 
         <h1>Compare The Largest Numbers</h1>
-        <h2> @Model.TestsPQ.firstoperand         @Model.TestsPQ.secondoperand</h2>
+        <h2> @Model.QuestionNO.firstoperand         @Model.QuestionNO.secondoperand</h2>
         <div class="form-group col-md-6">
             <form asp-action="Index">
                 <input asp-for="TestsA" type="text" value="" class="form-control" />
@@ -115,7 +114,7 @@
 
 
         <h1>Add The Two Numbers</h1>
-        <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
+        <h2> @Model.QuestionNO.firstoperand     @Model.QuestionNO.Opcode    @Model.QuestionNO.secondoperand</h2>
         <div class="form-group col-md-6">
             <form asp-action="Index">
                 <input asp-for="TestsA" type="text" value="" class="form-control" />
@@ -149,7 +148,7 @@
 
 
         <h1>Subtract The Two Numbers</h1>
-        <h2> @Model.TestsPQ.firstoperand     @Model.TestsPQ.Opcode    @Model.TestsPQ.secondoperand</h2>
+        <h2> @Model.QuestionNO.firstoperand     @Model.QuestionNO.Opcode    @Model.QuestionNO.secondoperand</h2>
         <div class="form-group col-md-6">
             <form asp-action="Index">
                 <input asp-for="TestsA" type="text" value="" class="form-control" />
@@ -181,7 +180,6 @@
 
 
 }
-
 
 
 
