@@ -127,9 +127,9 @@ namespace Metrics.Migrations
                     b.ToTable("Registrations");
                 });
 
-            modelBuilder.Entity("Metrics.Models.TestPermanentTable", b =>
+            modelBuilder.Entity("Metrics.Models.Test", b =>
                 {
-                    b.Property<int>("TestPermanentTableid")
+                    b.Property<int>("Testid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -146,9 +146,9 @@ namespace Metrics.Migrations
                     b.Property<DateTime>("TimeStamp")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("TestPermanentTableid");
+                    b.HasKey("Testid");
 
-                    b.ToTable("TestPermanentTables");
+                    b.ToTable("Tests");
                 });
 #pragma warning restore 612, 618
         }

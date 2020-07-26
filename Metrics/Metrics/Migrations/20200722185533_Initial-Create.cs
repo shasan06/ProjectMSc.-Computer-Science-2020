@@ -74,10 +74,10 @@ namespace Metrics.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TestPermanentTables",
+                name: "Tests",
                 columns: table => new
                 {
-                    TestPermanentTableid = table.Column<int>(nullable: false)
+                    Testid = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Registrationid = table.Column<int>(nullable: false),
                     TestLevel = table.Column<int>(nullable: false),
@@ -86,7 +86,7 @@ namespace Metrics.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TestPermanentTables", x => x.TestPermanentTableid);
+                    table.PrimaryKey("PK_Tests", x => x.Testid);
                 });
         }
 
@@ -105,7 +105,7 @@ namespace Metrics.Migrations
                 name: "Registrations");
 
             migrationBuilder.DropTable(
-                name: "TestPermanentTables");
+                name: "Tests");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace Metrics.Controllers
 
         //Http GET
 
-        public IActionResult Index([Bind("Testid", "Registrationid", "TestLevel", "TimeStamp", "Score", "TestsQ", "TestsPQ", "TestsA", "ImageName")] Test tests)
+        public IActionResult Index()
         {
 
 
@@ -36,133 +37,137 @@ namespace Metrics.Controllers
             string[] ImageArray = {"image_1.jpg", "image_1of1.png", "image_1of10.png", "image_1of11.png", "image_1of2.png", "image_1of3.png", "image_1of4.png", "image_1of5.png",
             "image_1of6.png", "image_1of7.png", "image_1of8.png", "image_1of9.png"};
 
-
+            Tempclass tests = new Tempclass();
             //Logic for retrieving the data for the initial assessment
             //var test = new Test()
             //var tests = new Test();
-            // var rand = new Random();
+            var rand = new Random();
+            int l = rand.Next(0, 11);
+            // QuestionAnswer QA = new QuestionAnswer();
 
             //ImageName = "image_1.jpg"
-            tests.ImageName = ImageArray;
+            //QA.ImageName = ImageArray;
             //store all the 10 questions in the variable TestsQ which is of type list
             tests.TestsQ = questions.Where(x => x.levelid == 1).Take(2).Concat(questions.Where(x => x.levelid == 2).Take(2)
                .Concat(questions.Where(x => x.levelid == 3).Take(2).Concat(questions.Where(x => x.levelid == 4).Take(2)
                .Concat(questions.Where(x => x.levelid == 5).Take(2)))))
                .ToList();//this is working
 
-
-
-            var rand = new Random();
-            int l = rand.Next(0, 11);
-            if (tests.ScoreQ == null)
+            if (tests.QAlst == null)
             {
-                tests.ScoreQ = new List<int>();
+                tests.QAlst = new List<QuestionAnswer>();
+
+            }
+
+            int k = 1;
+            foreach (var q in tests.TestsQ)
+            {
+                QuestionAnswer qa = new QuestionAnswer(q);
+                qa.questionid = k++;
+                qa.ImageName = ImageArray[(l + k) % 12];
+
+
+                tests.QAlst.Add(qa);
+
 
             }
 
 
 
-            for (int i = 4; i < 10; i++)
+            //This part is a problem bcoz the return will always start from the first question
+             for (int i = 0; i < 10; i++)
 
+                 {
+                //public IActionResult Index()
+
+                return View(tests.QAlst[i]);
+                //tests.QAlst[i];
+                //return RedirectToAction("tests.QAlst[i]");
+                //return RedirectToAction("QuestionAnswer");
+
+
+
+                //tests.RNDM = (l + i) % 12;
+
+            }
+
+            /*TempData["question"] = tests.TestsQ;
+            TempData["score"] = 0;
+            TempData.Keep();
+
+            return RedirectToAction("PresentQuestion");*/
+
+
+            //}
+             return View(tests.QAlst[5]);
+            //return RedirectToAction("PresentQuestion");
+        }
+
+        /*public IActionResult PresentQuestion()
+        {
+            Tempclass tests = new Tempclass();
+            Queue<List<QuestionAnswer>> q = new Queue<List<QuestionAnswer>>();
+
+            for(int i=0; i<10; i++)
             {
-                tests.RNDM = (l + i) % 12;
-
-
-                //tests.TestsPQ = tests.TestsQ[i];
-                tests.QuestionNO = tests.TestsQ[i];
-                //qno= tests.QuestionNO;
-                /***
-
-                if (tests.ScoreQ.Count()<=i)
-                {
-                    tests.ScoreQ.Add(0);
-                }
+                (Queue<List<QuestionAnswer>>) tests.QAlst[i];
                 
-                
-                if (tests.TestsPQ.CorrectAnswer.Equals(tests.TestsA))
+            }
+           // List<Question> q = null;
+            //I am using the queue structure
+            if (TempData["question"]!=null)
+            {
+                Queue<List<Question>> qlist = (Queue<List<Question>>)TempData["question"];
+                if(qlist.Count>0)
                 {
-                    tests.Score += 10;
-                    tests.ScoreQ[i] = 10;
-                    ViewData["Image"] = "~/images/image/tick.png";
-                    
-
-
-
+                    q = qlist.Peek();
+                    test.Q = q;//here is the problem
+                    qlist.Dequeue();
+                    TempData["question"] = qlist;
+                    TempData["score"] = 0;
+                    TempData.Keep();
                 }
-
-                //if the user answer in incorrect
+                //if all the question end
                 else
                 {
-                    tests.Score += 0;
-                    tests.ScoreQ[i]= 0;
-                    ViewData["Image"] = "~/images/image/cross.png";
-                    //return View(tests);
-
-
-
+                    return RedirectToAction("EndExam");
                 }
-                ***/
-                return View(tests);
             }
-            //get any first question from the TestsQ into another variable named TestsPQ   
+            return View(test.Q);*/
 
-            //tests.Add(test);
-            return View(tests);
-
-        }        
-        /*public ActionResult PostAnswer(Test useranswer)
+/////////////////////////////////////////////////////
+            public IActionResult QuestionAnswer()
         {
-            var t = new Test();
-            bool checkedanswer = t.TestsPQ.CorrectAnswer.Equals(useranswer.TestsA);
-
-            if (checkedanswer == null)
-            {
-                ViewData["Message"] = "Please type the answer";
-                return RedirectToAction("Index");
-            }
-            else if (checkedanswer==true)
-            {
-                t.Score += 10;
-                ViewData["Image"] = "/images/image/tick.png";
-            }
-            else
-            {
-                t.Score += 0;
-                ViewData["Image"] = "/images/image/cross.png";
-            }
-            return View(us);
+            return View();
         }
-        */
+        }
 
-        //Http POST
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update ([Bind("Testid","Registrationid","TestLevel","TimeStamp","Score")] Test test)
-        {
+        
 
 
+    }  
+
+           
 
 
-            var t = new TestPermanentTable
-            {
-                TestPermanentTableid = test.Testid,
-                Registrationid = test.Registrationid,
-                TestLevel = test.TestLevel,
-                TimeStamp = test.TimeStamp,
-                Score = test.Score
-                
-
-            };
-
-            _context.TestPermanentTables.Add(t);
-            await _context.SaveChangesAsync();
-            ModelState.Clear();
             
-            return View(test);
-        }
-    }
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
 
 
 
