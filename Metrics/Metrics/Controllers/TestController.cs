@@ -25,7 +25,7 @@ namespace Metrics.Controllers
 
         //Http GET
 
-        public IActionResult Index()
+        public IActionResult QuestionAnswer(int lastQuestionAnswered = 0)
         {
 
 
@@ -37,6 +37,7 @@ namespace Metrics.Controllers
             string[] ImageArray = {"image_1.jpg", "image_1of1.png", "image_1of10.png", "image_1of11.png", "image_1of2.png", "image_1of3.png", "image_1of4.png", "image_1of5.png",
             "image_1of6.png", "image_1of7.png", "image_1of8.png", "image_1of9.png"};
 
+            //QuestionAnswer qans = new QuestionAnswer();
             Tempclass tests = new Tempclass();
             //Logic for retrieving the data for the initial assessment
             //var test = new Test()
@@ -74,104 +75,36 @@ namespace Metrics.Controllers
 
 
 
-            //This part is a problem bcoz the return will always start from the first question
-             for (int i = 0; i < 10; i++)
 
-                 {
-                //public IActionResult Index()
+            //for (int i = 0; i < 10; i++)
 
-                return View(tests.QAlst[i]);
-                //tests.QAlst[i];
-                //return RedirectToAction("tests.QAlst[i]");
-                //return RedirectToAction("QuestionAnswer");
+            //{
+            //  qa.QuestionNumber = i;
+            //  if(qa.QuestionNumber==0)
 
-
-
-                //tests.RNDM = (l + i) % 12;
-
-            }
-
-            /*TempData["question"] = tests.TestsQ;
-            TempData["score"] = 0;
-            TempData.Keep();
-
-            return RedirectToAction("PresentQuestion");*/
-
+            var viewModel = tests.QAlst.Skip(lastQuestionAnswered).Take(1).First();
+            return View(viewModel);
 
             //}
-             return View(tests.QAlst[5]);
-            //return RedirectToAction("PresentQuestion");
         }
 
-        /*public IActionResult PresentQuestion()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Response(QuestionAnswer qa)
         {
-            Tempclass tests = new Tempclass();
-            Queue<List<QuestionAnswer>> q = new Queue<List<QuestionAnswer>>();
-
-            for(int i=0; i<10; i++)
-            {
-                (Queue<List<QuestionAnswer>>) tests.QAlst[i];
-                
-            }
-           // List<Question> q = null;
-            //I am using the queue structure
-            if (TempData["question"]!=null)
-            {
-                Queue<List<Question>> qlist = (Queue<List<Question>>)TempData["question"];
-                if(qlist.Count>0)
-                {
-                    q = qlist.Peek();
-                    test.Q = q;//here is the problem
-                    qlist.Dequeue();
-                    TempData["question"] = qlist;
-                    TempData["score"] = 0;
-                    TempData.Keep();
-                }
-                //if all the question end
-                else
-                {
-                    return RedirectToAction("EndExam");
-                }
-            }
-            return View(test.Q);*/
-
-/////////////////////////////////////////////////////
-            public IActionResult QuestionAnswer()
-        {
-            return View();
-        }
-        }
-
-        
-
-
-    }  
-
-           
-
+            //The line below does nothing. You might want to get it from the DB
+            //Or keep updating the CorrectAnswer using hidden fields. Up to you.
+            qa.UserMark += qa.CorrectAnswer == qa.UserAnswer ? 10 : 0;
 
             
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-
-
-
-
-
+            var parameters = new 
+            { 
+                lastQuestionAnswered = qa.questionid 
+            };
+            return RedirectToAction("QuestionAnswer",  "Test", parameters);
+        }
+    }
+}
 
 

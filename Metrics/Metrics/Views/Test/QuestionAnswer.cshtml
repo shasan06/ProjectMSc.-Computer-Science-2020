@@ -1,17 +1,79 @@
-﻿@model QuestionAnswer
+﻿
+@model QuestionAnswer
 @{
-    ViewData["Title"] = "Tempclass";
+    ViewData["Title"] = "Test";
     Layout = "_Layout";
 }
 
+<p>
+    <a asp-action="Test">Test Started</a>
+</p>
+@TempData["Result"]
+
+@switch (Model.Opcode)
+{
+
+
+
+    case "Count":
 
 
 
 
+        <h1>Count</h1>
 
-<form asp-action="Index" asp-controller="Test">
+        for (int j = 0; j < Model.firstoperand; j++)
+        {
+            <img src="~/images/image/@Model.ImageName" width="80" height="80" />
+            ;
 
-    <input asp-for=@Model.UserAnswer type="submit" value="Submit" id="save" class="btn-outline-dark" />
+        }
 
 
-</form>
+
+        break;
+
+    case "Compare":
+
+
+        <h1>Compare The Largest Numbers</h1>
+        <h2> @Model.firstoperand         @Model.secondoperand</h2>
+
+
+        break;
+
+    case "+":
+
+
+        <h1>Add The Two Numbers</h1>
+        <h2> @Model.firstoperand     @Model.Opcode    @Model.secondoperand</h2>
+
+
+
+
+        break;
+
+    case "-":
+
+
+        <h1>Subtract The Two Numbers</h1>
+        <h2> @Model.firstoperand     @Model.Opcode    @Model.secondoperand</h2>
+
+
+
+
+        break;
+
+
+}
+<section>
+
+    @using (Html.BeginForm("Response", "Test", FormMethod.Post))
+    {
+        @Html.TextBoxFor(x => x.UserAnswer)<br />
+        @Html.HiddenFor(model => model.questionid)
+        <br />
+        <input type="submit" value="Submit" />
+    }
+
+</section>

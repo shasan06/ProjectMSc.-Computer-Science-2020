@@ -10,16 +10,16 @@ namespace Metrics.Models
     {
        public List<Question> TestsQ { get; set; }
 
-       public List<QuestionAnswer> QAlst { get; set; }
+        public List<QuestionAnswer> QAlst { get; set; }//checkout
 
         
-        public int RNDM { get; set; }
+        public int RNDM { get; set; }//checkout
 
         //This temporary class will be passed to the view 
         //something like return view(List[i]) or List.Next()
 
-        
 
-        
+
+
     }
 }

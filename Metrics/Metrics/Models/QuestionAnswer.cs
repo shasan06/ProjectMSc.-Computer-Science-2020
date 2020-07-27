@@ -13,12 +13,19 @@ namespace Metrics.Models
 
         public int QuestionNumber { get; set; }
 
+       // public List<QuestionAnswer> QAlst { get; set; }
         public string UserAnswer { get; set; }
 
+        public string Answeroutcome { get; set; }
         public int UserMark { get; set; }
 
         //This class will be passed as the whole object to the temp class 
         //as alist and will be used for analysis
+
+        public QuestionAnswer()
+        {
+
+        }
 
         public QuestionAnswer(Question q)
         {
