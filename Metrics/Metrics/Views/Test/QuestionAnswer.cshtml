@@ -73,6 +73,10 @@
         @Html.TextBoxFor(x => x.UserAnswer)<br />
         @Html.HiddenFor(model => model.questionid)
         <br />
+        @Html.HiddenFor(model => model.QuestionNumber)
+        <br />
+        @Html.HiddenFor(model => model.CorrectAnswer)
+        <br />
         <input type="submit" value="Submit" />
     }
 

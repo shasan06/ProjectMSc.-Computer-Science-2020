@@ -64,7 +64,8 @@ namespace Metrics.Controllers
             foreach (var q in tests.TestsQ)
             {
                 QuestionAnswer qa = new QuestionAnswer(q);
-                qa.questionid = k++;
+                //qa.questionid = k++;
+                qa.QuestionNumber = k++;
                 qa.ImageName = ImageArray[(l + k) % 12];
 
 
@@ -81,10 +82,11 @@ namespace Metrics.Controllers
             //{
             //  qa.QuestionNumber = i;
             //  if(qa.QuestionNumber==0)
-
+            
+           
+             //return RedirectToAction("EndTest", "Test");
             var viewModel = tests.QAlst.Skip(lastQuestionAnswered).Take(1).First();
             return View(viewModel);
-
             //}
         }
 
@@ -92,17 +94,25 @@ namespace Metrics.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Response(QuestionAnswer qa)
         {
-            //The line below does nothing. You might want to get it from the DB
-            //Or keep updating the CorrectAnswer using hidden fields. Up to you.
+            //The line below does nothing. might want to get it from the DB
+            //Or keep updating the CorrectAnswer using hidden fields.
             qa.UserMark += qa.CorrectAnswer == qa.UserAnswer ? 10 : 0;
 
             
 
             var parameters = new 
             { 
-                lastQuestionAnswered = qa.questionid 
+                lastQuestionAnswered = qa.QuestionNumber 
+
             };
-            return RedirectToAction("QuestionAnswer",  "Test", parameters);
+
+            return (qa.QuestionNumber == 10) ? RedirectToAction("EndTest","Test") : RedirectToAction("QuestionAnswer",  "Test", parameters);
+        }
+
+        public IActionResult EndTest()
+        {
+            ViewData["Message"] = "Thankyou taking the test";
+            return View();
         }
     }
 }
