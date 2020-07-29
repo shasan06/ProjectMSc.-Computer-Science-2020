@@ -11,18 +11,19 @@ using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Identity;
-
+using Metrics.Extensions;
 
 namespace Metrics.Controllers
 {
     public class LoginController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly TestFactory _testFactory;
 
-
-        public LoginController(ApplicationDbContext context)
+        public LoginController(ApplicationDbContext context, TestFactory testFactory)
         {
             _context = context;
+            _testFactory = testFactory;
         }
 
         
@@ -44,7 +45,6 @@ namespace Metrics.Controllers
                 return View(new Registration()); //this will insert a new registration if id=0
             else
                 return View(_context.Registrations.Find(id));
-
         }
 
 
@@ -68,6 +68,16 @@ namespace Metrics.Controllers
 
             if (dbUser != null)
             {
+                //add logged in use to session
+                HttpContext.Session.SetObject("loggedInUser", dbUser);
+                //add tempClass to session
+                _testFactory.CreateQAlist(dbUser);
+                var tempClassKey = $"{dbUser.RegistrationId}-tempClass";
+                var tempClass = _testFactory.tests;
+                HttpContext.Session.SetObject(tempClassKey, tempClass);
+
+
+
                 //var session = new Session().ToString();
                 //session = user.FullName;
                 ViewData["Message"] = "Hello " + dbUser.FullName;

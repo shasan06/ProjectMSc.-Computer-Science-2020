@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200729090606_added TempClass.cs" />
+    <Compile Remove="Migrations\20200729090606_added TempClass.Designer.cs" />
+    <Compile Remove="Migrations\20200729090735_added TempClass.cs" />
+    <Compile Remove="Migrations\20200729090735_added TempClass.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="InternetExplorer.BrowserEmulation" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />

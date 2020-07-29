@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore.Storage;
 using Metrics.Data.Seeder;
+using Metrics.Models;
 
 namespace Metrics
 {
@@ -38,8 +39,8 @@ namespace Metrics
             services.AddSession();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();//why are we adding
             services.AddRazorPages();
-            services.AddScoped<IDatabaseSeeder, DatabaseSeeder>();//why doing scoped
-            
+            services.AddScoped<IDatabaseSeeder, DatabaseSeeder>();//why doing scoped. Scope, because we need it per request. The other options are Transient, would also work, and singleton which we don't want
+            services.AddTransient<TestFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
