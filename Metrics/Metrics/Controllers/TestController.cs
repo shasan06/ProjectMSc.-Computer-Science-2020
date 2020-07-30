@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Web;
 using Metrics.Extensions;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Metrics.Controllers
 {
@@ -145,70 +146,106 @@ namespace Metrics.Controllers
             //
 
             return (qa.QuestionNumber == 10) ? RedirectToAction("Reassessment", "EndTest", "Test") : RedirectToAction("QuestionAnswer", "Test", parameters);
+            // return (qa.QuestionNumber == 10) ? RedirectToAction("EndTest", "Test") : RedirectToAction("QuestionAnswer", "Test", parameters);
         }
 
         public void Reassessment()
         {
-            int score = 0;
             var tempClass = GetUserTempClass();
-            foreach (var qa in tempClass.QAlst)
+            var r = new Registration();
+            var t = new Test();
             {
-                score += qa.UserMark;
-            }
+                int score = 0;
 
-            //we for the first time that the user is at level o
-            //using dictionary input in the func will be score, usercurrent level in func output assigned level to user
-            //Dictionary<Func<double,int>, int> dict = new Dictionary<Func<double, int>, int>();
-            //1)if the current level of the user is zero and the marks is 100.0 the assign -1 to the userlevel, notice that 0 is the boundary case
-            if (tempClass.TestLevel == 0 && score == 100.00)
-            {
-                tempClass.TestLevel = -1;
-            }
-            else if (tempClass.TestLevel == 0 && score < 60.0)//this means if the user is at level 0 and has scored less than 60 or 70 there is no way to go below so can remain on the same level
-            {
-                tempClass.TestLevel = tempClass.TestLevel;
-            }
-            else if (tempClass.TestLevel == 0 && score > 80.0)//this means if the user is at level 0 and has scored above 80 then assign a level higher to the user 
-            {  tempClass.TestLevel = tempClass.TestLevel + 1;//this means level 1 will be assigned to the user
-            }
 
-            //Now check if the user is at level -1 means the user has cleared the initial assessment of level 0 and is at level -1 of the second initial assessment
-            else if (tempClass.TestLevel == -1 && score == 100.00)
-            {
-                tempClass.TestLevel = -2;
+                foreach (var qa in tempClass.QAlst)
+                {
+                    score += qa.UserMark;
+                }
+
+
+
+
+                //1)Algorithm for the initial assessment
+                //if the current level of the user is zero and less than  and the score is 100, simply assigned Level-1 to the user so that it can take the next initial assessment
+
+                if (tempClass.TestLevel <= 0 && score == 100.00 || tempClass.TestLevel == -1 && score == 100 || tempClass.TestLevel == -2 && score == 100)
+                {
+                    r.Level = r.Level - 1;
+                }
+
+                else if (tempClass.TestLevel == 0 && score != 100 || tempClass.TestLevel == -1 && score != 100 || tempClass.TestLevel == -2 && score != 100)//if the user is at level 0 and the score is not equal to 100, then check which level to be assigned to the user
+                {
+
+                    //1)sort the QAlist according by the level
+                    var sortlist = tempClass.QAlst.OrderBy(x => x.levelid).ToList();
+
+                    int Marks = 0;
+                    for (int i = 0; i < 10; i++)// loop through the marks of the 10 questions and store into Marks
+                    {
+                        Marks += sortlist[i].UserMark;
+                        //Now check by pair if the sum is 20 or not, if yes then check the next pair
+                        //if the marks are not 20 then assign the level
+                        if (i % 2 == 1 && Marks != ((i + 1) / 2) * 20)
+                        {
+                            r.Level = (i + 1) / 2 + Math.Abs(r.Level) * 5;//this will give the current level of the user for the initial assessment that is 0, -1, -2
+                        }
+
+                    }
+                }
+                //Algorithm for all the cases that is from level 1 to 16 after the level is set as the now the algorithm will change
+                //here users marks will decide the user level
+                //score above 70 go up
+                else if (score > 70)
+                {
+                    r.Level = r.Level + 1;
+                }
+                //score below 70 go down
+                else if (score < 70)
+                {
+                    r.Level = r.Level - 1;
+                }
+                //score 70 remain at the same level
+
+                else // if the score 70 remain same level
+                {
+                    r.Level = r.Level;
+                }
+
+                //Now add all the datails in the database
+
+
             }
-            else if (tempClass.TestLevel == -1 && score < 60.0)//this means if the user is at level -1 and has scored less than 60 then this means he/she is weak in level 6 to 10 of the problems then assign level 6
+            if (tempClass.TestLevel == 0)
             {
-                tempClass.TestLevel = 6;
+
+                t.Testid = tempClass.Testid;
+                t.Registrationid = tempClass.Registrationid;
+                t.TestLevel = tempClass.TestLevel;
+                t.TimeStamp = tempClass.TimeStamp;
+                t.Score = tempClass.Score;
+                _context.Tests.Add(t);
+                _context.Registrations.Add(r);
+                _context.SaveChangesAsync();
             }
-            else if (tempClass.TestLevel == -1 && score > 80.0)//this means if the user is at level -1 and has scored above 80 then surely the user is not able to do the last two level of the questions so assigned level 9 
-            {
-                tempClass.TestLevel = 9;//this means level 1 will be assigned to the user
-            }
-            else if (tempClass.TestLevel == -2 && score == 100.00)//he/she can do all level 15 then assign the last level as 16, and check, 
-            {
-                tempClass.TestLevel = 16;
-            }
-            else if (tempClass.TestLevel == -2 && score < 60.0)//this means if the user is at level -2 and has scored less than 60 then this means he/she is weak in level 11 to 15 of the problems then assign level 11
-            {
-                tempClass.TestLevel = 11;
-            }
-            else if (tempClass.TestLevel == -2 && score > 80.0)//this means if the user is at level -2 and has scored above 80 then surely the user is not able to do the last two level of the questions so assigned level 14 
-            {
-                tempClass.TestLevel = 14;//this means level 1 will be assigned to the user
-            }
-            else if (tempClass.TestLevel == 16 && score == 100.0)
-            {
-                tempClass.TestLevel = 0; // what should i do to tell the user that he/she has completed all levels for the time being until i develop more//
-            }
+            
+
+
 
             else
             {
-
+                _context.Update(r);
+                _context.Update(t);
+                _context.SaveChangesAsync();
             }
-            
+
         }
 
+    
+
+
+
+            
         public IActionResult EndTest()
         {
             ViewData["Message"] = "Thankyou taking the test";
